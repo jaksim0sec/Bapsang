@@ -29,7 +29,7 @@ HTML('body').innerHTML = `
       <!--PC 와 타블렛 환경 로그인 메뉴-->
       <div id="more">
         <div id="logined">
-          <div id="profile" class = 'ProfSty'><img src="https://ifh.cc/g/y4oa3w.png"/></div>
+          <div id="profile" class = 'ProfSty'><img src="https://ifh.cc/g/qaHX3T.png"/></div>
           <div id="nickname">예시닉네임</div>
           <button
             class="midB"

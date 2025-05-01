@@ -76,8 +76,8 @@ body::before {
   content: '';
   position: fixed;top:0px;
   width: 100vw;
-  height: 150px;
-  background: linear-gradient(white,white,white,transparent);
+  height: 130px;
+  background: linear-gradient(white,white,white,white,white,transparent);
   z-index: 1;
 }
 

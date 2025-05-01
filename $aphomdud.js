@@ -29,6 +29,9 @@ setTimeout(async function() {
         HTML('#profile').onclick = function() {
           pageMove(`/mypage?u=${fakeInfo.name}`);
         };
+        HTML('#nickname').onclick = function() {
+          pageMove(`/mypage?u=${fakeInfo.name}`);
+        };
         HTML('#profile img').src=fakeInfo.prof;
         HTML('#profile').style.outlineColor=`${fakeInfo.color}`;
         HTML('#mob-logined #profile').style.outlineColor=`${fakeInfo.color}`;
