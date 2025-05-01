@@ -1,0 +1,178 @@
+main{display: block;}
+
+#background{
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #F7E0CD;;
+}
+
+#background #Bprofile{
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  bottom: calc(-50% - 55px);
+  left: 4.8%;
+  border-radius: 50%;
+  outline: 13px solid white;
+  transition: all 1s ease;
+  border: 3px solid #00000015;
+  transform: translateY(calc(-50% + 20px));
+  background-color: white;
+  overflow: hidden;
+}
+
+#background #BfollowB{
+  margin: 0px;
+  padding: 12px 20px;
+  position: absolute;
+  bottom: calc(-65px);
+  right: 54px;
+  background-color: rgb(34, 34, 34);
+  color: white;
+  border-radius: 20px;
+
+}
+#background #BmoreB{
+  width: 48px;
+  margin: 0px;
+  height: 48px;
+  position: absolute;
+  bottom: calc(-65px);
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid #00000020;
+  color: rgb(80, 80, 80);
+  border-radius: 20px;
+
+}
+#background #BfollowB:hover{
+  padding: 12px 20px;
+  margin: 0px;
+  transform: none;
+  background-color: rgb(88, 88, 88);
+}
+#background #BmoreB:hover{
+  padding: 12px 20px;
+  margin: 0px;
+  transform: none;
+  background-color: rgb(233, 229, 227);
+}
+#background #Bprofile img{
+  width: 130px;
+  position: absolute;
+  left:50%;top:50%;transform: translate(-50%,-50%);
+  border-radius: 50%;
+}
+#background #Bprofile:hover{
+  outline: 8px solid white;
+  transform: translateY(-50%) scale(1.1) rotate(360deg);
+  background-color: white;
+}
+
+#background #Bnick{
+  position: absolute;
+  bottom: -52px;
+  font-size: 33px;
+  left: calc(5% + 148px);
+  transition: all 0.5s ease;
+  height: 48px;
+}
+
+#background #Bnick:after{
+  content: '';
+  position: absolute;
+  bottom: -22.5px;
+  left: 5px;
+  width: 100%;
+  height: 0px;
+  border: 0.5px dashed rgb(189, 189, 189);
+}
+
+#background #Babout{
+  position: absolute;
+  bottom: -100px;
+  font-size: 14px;
+  left: calc(5% + 152px);
+  transition: all 0.5s ease;
+  font-weight: 750;
+}
+
+#background #Bfollow{
+  position: absolute;
+  top: 247px;
+  left: calc(5% + 152px);
+  font-size: 14px;
+  transition: all 0.5s ease;
+  font-weight: 750;
+}
+
+#background #Bname{
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  #background #Bprofile{
+    width: 110px;
+    height: 110px;
+    bottom: calc(-50% - 25px);
+    outline: 5px solid white;
+  }
+  #background #Bnick{
+    position: absolute;
+    max-width: 180px;
+    height: 68;
+    display: flex;
+    flex-direction: column;
+    bottom: -60px;
+    font-size: 28px;
+    left: calc(5% + 130px);
+    transition: all 0.5s ease;
+    gap: 0px;
+    
+  }
+  #background #Bnick::after{
+    bottom: -15px;
+    left: 0px;
+  }
+
+  main{width: 100vw;padding: 11px;}
+  #background #Bname{
+    font-size: 13px;
+  }
+  #background #Babout{
+    position: absolute;
+    top: 280px;
+    left: calc(5% + 130px);
+    font-size: 12px;
+    transition: all 0.5s ease;
+    font-weight: 750;
+  }
+}
+
+#board{
+  width: 100%;
+  height: 200px;
+  margin-top: 250px;
+  border: 2px dashed #00000050;
+  color: #00000050;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#smallboard{
+  width: 100%;
+  height: 80px;
+  border: 2px dashed #00000050;
+  color: #00000050;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -100px;
+}

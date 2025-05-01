@@ -1,0 +1,48 @@
+<script>
+function 보내기(){
+  fetch('/test', {
+    method: 'POST',
+    headers: {
+      'vpz': 'yplrmEEE',
+      'zptr': JSON.stringify({
+        num: 10,
+        type: "def"
+      })
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log('Response from server:', data))
+  .catch(error => console.error('Error:', error));
+}
+
+function 보내기2(){
+  fetch('/test', {
+    method: 'POST',
+    headers: {
+      'vpz': 'yplrm',
+      'zptr': JSON.stringify({
+        num: 1000000,
+        type: "def"
+      })
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log('Response from server:', data))
+  .catch(error => console.error('Error:', error));
+}
+
+function 보내기1(앙){
+  fetch('/test', {
+    method: 'POST',
+    headers: {
+      'vpz': 'vpfr',
+      'zptr': JSON.stringify({
+        ycy : 앙
+      })
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log('Response from server:', data))
+  .catch(error => console.error('Error:', error));
+}
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+  <script src='$3$gpejtjfwjd.js'></script>
+    <link rel="stylesheet" href="input.css" />
+  </head>
+  <body>
+    <main style = 'flex-direction:column;align-items:center;'>
+    <div style = "font-size: 30px;font-weight:bold;display: flex;align-items: center;gap:5px;">
+    <span><img src="https://ifh.cc/g/tVs9Jo.png" style="width:35px;height:35px;"/></span> 가입하기
+    </div>
+    <div class="title" style="width:auto;font-size:15px;">바보상자의 회원이 되어보세요!</div>
+
+    <div class='cover' id='cover1'>
+    <div class="title" style="width:auto;font-size:22px;">계정에 대하여</div>
+    <div class="title" style="width:auto;font-size:12px;margin-bottom:1px">계정 정보를 입력해봐요🥳</div>
+      <div class = 'title'>아이디 (필수)
+        <span style="margin-left:0px;color:#00000050;font-size:12px;">바보상자 계정의 이름이에요!</span></div>
+      <input type='text'autocomplete="off" id = 'id' placeholder="알파벳,숫자,특수문자 . _ 를 사용하여 3 ~ 10 글자"></input>
+      <div class = 'title'>닉네임 (필수)
+      <span style="margin-left:0px;color:#00000050;font-size:12px;">다른사람들에게 표시되는 당신의 이름이에요!</span></div>
+    <input type='text'autocomplete="off" id = 'nick' placeholder="한글, 알파벳, 숫자와 특수문자 . _ 를 사용하여 2 ~ 6 글자"></input>
+      <div class = 'title'>비밀번호 (필수)
+        <span style="margin-left:0px;color:#00000050;font-size:12px;">나만 알고 있는 안전한 비밀번호를 만들어보세요!</span></div>
+      <input type='password'autocomplete="off" id = 'pass' placeholder="알파벳,숫자,특수문자 . _ ! * 을 사용하여 10~25 글자 "></input>
+      <div class = 'title'>비밀번호 재확인 (필수)
+        <span style="margin-left:0px;color:#00000050;font-size:12px;">비밀번호를 올바르게 입력했는지 확인해봐요!</span></div>
+      <input type='password'autocomplete="off" id = 'passC' placeholder="알파벳,숫자,특수문자 . _ ! * 을 사용하여 10~25 글자 "></input>
+      <div class = 'innerCover'>
+        <div>
+          <span><input type="checkbox" id='CHshw' onclick="togPass2()"><label for="CHshw"></label></span>
+          <span>비밀번호 보이기</span>
+        </div>
+      </div>
+    </div>
+
+    <div class='cover' id='cover2'>
+    <div class="title" style="width:auto;font-size:22px;">당신에 대하여</div>
+    <div class="title" style="width:auto;font-size:12px;margin-bottom:1px">당신에 대하여 알려주세요! 필수는 아니에요😌</div>
+    <div class = 'title'>MBTI
+      <span style="margin-left:0px;color:#00000050;font-size:12px;">당신은 어떤 사람인가요?</span></div>
+    <input type='text'autocomplete="off" id = 'mbti' placeholder="4~5 글자 알파벳"></input>
+    <div class = 'title'>최애색깔
+    <span style="margin-left:0px;color:#00000050;font-size:12px;">마이페이지와 소소한 디자인에 변화를 주는 색상이에요</span></div>
+  <input type='color'value='#FF696E'id = 'color' placeholder="한글, 알파벳, 숫자와 특수문자 . _ 를 사용하여 2 ~ 6 글자"></input>
+    <div class = 'title'>취미와 관심분야
+      <span style="margin-left:0px;color:#00000050;font-size:12px;">당신은 무엇을 좋아하나요?</span></div>
+    <input type='text'autocomplete="off" id = 'hobby' placeholder="자유롭게 2~10 글자 "></input>
+    <div class = 'title'>간단한 자기소개
+      <span style="margin-left:0px;color:#00000050;font-size:12px;">마이페이지에 뜨는 간단한 자기소개에요</span></div>
+    <input type='text'autocomplete="off" id = 'about' placeholder="자유롭게 0~20 글자"></input>
+    <button class='highB' style="border-radius: 10px;" id='$LI'><span><img src="https://ifh.cc/g/tVs9Jo.png" /></span> 의 새로운 회원 되기</button>
+    <div style = "color: #FF5542;font-size: 14px;font-weight:bold;" id='regAlert'>이것은 테스트 알림입니다.</div>
+  </div>
+    </main>
+    <script src="$iodryyomh.js" defer></script>
+    <script src="$3$rlqhshtmldlqfurrl.js" defer></script>
+    <script src="$Vpldud.js" defer></script>
+    <script src="$aphomdud.js" defer></script>
+    <script src="$aomlQstsz.js" defer></script>
+    <script src="$Aphom$main.js" defer></script>
+    <script src="$dypt2.js" defer></script>
+    <script src="$vpmdpar.js" defer></script>
+    <script src="$drvitr.js" defer></script>
+    <script src="reg$3$qhdkstltmxpa.js" defer></script>
+
+     <script>
+      function togPass2() {
+        const checkbox = HTML('#CHshw');
+        const passwordField = HTML('#pass'); 
+        const passwordField2 = HTML('#passC'); 
+
+        if (checkbox.checked) {
+          passwordField.type = 'text'; 
+          passwordField2.type = 'text'; 
+        } else {
+          passwordField.type = 'password';
+          passwordField.type2 = 'password';
+        }
+      }
+      setTimeout(()=>{
+        HTML('#cover1').style.width = HTML('#cover1').getBoundingClientRect().width +'px'
+        HTML('#cover2').style.width=HTML('#cover1').style.width;},50)
+    </script>
+    <script defer>//if(login){location.href='/';/*intendedSUS*/}</script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script src='$3$gpejtjfwjd.js'></script>
+    <link rel="stylesheet" href="input.css" />
+  </head>
+  <body>
+    <main style = 'display:none;flex-direction:column;align-items:center;'>
+    <div class='cover' style="margin-top:80px;">
+    <div style = "font-size: 30px;font-weight:bold;display: flex;align-items: center;gap:5px;margin-bottom:35px;">
+    로그인
+    </div>
+      <div class = 'title'>아이디</div>
+      <input type='text' id = 'id' placeholder="아이디를 이곳에 입력해주세요" autocomplete="new-password"></input>
+      <div class = 'title'>비밀번호</div>
+      <input type='password' autocomplete="new-password"id = 'pass' placeholder="비밀번호를 이곳에 입력해주세요"></input>
+      <div class = 'innerCover'>
+        <div>
+        <span><input type="checkbox" id='CHrem'><label for="CHrem"></label></span>
+        <span style="font-size:14px">아이디 기억</span>
+        </div>
+        <div>
+          <span><input type="checkbox" id='CHato'><label for="CHato"></label></span>
+          <span style="font-size:14px">자동 로그인</span>
+        </div>
+        <div>
+          <span><input type="checkbox" id='CHshw' onclick="togPass()"><label for="CHshw"></label></span>
+          <span style="font-size:14px">비밀번호 보이기</span>
+        </div>
+      </div>
+      <button class='highB' style="border-radius: 10px;" id='$LI'><span><img loading="lazy"src="https://ifh.cc/g/tVs9Jo.png" /></span> 로 로그인</button>
+      <div class="title" style="font-size:13px;color:#00000070;margin-top:10px;transition: all 0.5s ease;" id='goReg' onclick="pageMove('/reg')">계정 가입하기 ></div>
+    </div>
+    </main>
+    <script src="$iodryyomh.js" defer></script>
+    <script src="$3$rlqhshtmldlqfurrl.js" defer></script>
+    <script src="$Vpldud.js" defer></script>
+    <script src="$aphomdud.js" defer></script>
+    <script src="$aomlQstsz.js" defer></script>
+    <script src="Login$IoDry.js" defer></script>
+    <script src="$Aphom$main.js" defer></script>
+    <script src="$dypt2.js" defer></script>
+    <script src="$vpmdpar.js" defer></script>
+    <script src="$drvitr.js" defer></script>
+     <script>
+      function togPass() {
+        const checkbox = HTML('#CHshw');
+        const passwordField = HTML('#pass'); 
+
+        if (checkbox.checked) {
+          passwordField.type = 'text'; 
+        } else {
+          passwordField.type = 'password';
+        }
+      }
+    </script>
+    <script defer>//if(login){location.href='/';/*intendedSUS*/}</script>
+  </body>
+</html>
