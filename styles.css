@@ -143,7 +143,7 @@ header * {
 }
 
 nav {
-  width: 48vw;
+  width: 49vw;
   display: flex;
 }
 
@@ -165,7 +165,7 @@ nav div:active {
 }
 
 #more {
-  width: 230px;
+  width: auto;
   display: inline-flex;
   margin: 0px;
 }
@@ -392,7 +392,7 @@ main {
 textarea {
   resize: vertical;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: inset 0px 4px 10px #572f0a20;
   padding: 15px;
   font-size: 15px;

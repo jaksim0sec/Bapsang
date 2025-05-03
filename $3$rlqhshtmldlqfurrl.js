@@ -33,7 +33,7 @@ HTML('body').innerHTML = `
           <div id="nickname">예시닉네임</div>
           <button
             class="midB"
-            style="width: 50px; padding: 8px; margin-top: 10px"
+            style="width: 50px; height: 50px; padding: 8px; margin-top: 10px;"
             id="logout"
             onclick="$aphpiy()"
           >
@@ -70,7 +70,7 @@ HTML('body').innerHTML = `
             <div id="nickname">예시닉네임</div>
             <button
               class="midB"
-              style="width: 130px; padding: 8px; margin-top: 10px"
+              style="padding: 8px; margin-top: 10px;width: 130px;"
               onclick="$aphpiy()"
             >
               ⨉

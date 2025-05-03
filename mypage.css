@@ -162,6 +162,7 @@ main{display: block;}
   align-items: center;
   justify-content: center;
   position: relative;
+  font-weight: bolder;
 }
 
 #smallboard{
@@ -175,4 +176,5 @@ main{display: block;}
   justify-content: center;
   position: absolute;
   top: -100px;
+  font-weight: bolder;
 }
