@@ -10,8 +10,8 @@ app.use(cors({
   origin: '*',
   allowedHeaders: [
     'Content-Type',
-    '$$O',
-    '$$W',
+    'ssO',
+    'ssW',
     'miz',
     'yuqr',
     'vpz',
@@ -282,12 +282,12 @@ app.post('/getUnorm', (req, res) => {
 });
 
 app.post('/3cpzj', (req, res) => {
-  console.log('▶ RAW headers:', req.rawHeaders);
-  console.log('▶ PARSED headers object:', req.headers);
+  //console.log('▶ RAW headers:', req.rawHeaders);
+  //console.log('▶ PARSED headers object:', req.headers);
   let header = req.headers;
   //console.log(header)
-  let id = header['$$o'];
-  let ps = header['$$w'];
+  let id = header['sso'];
+  let ps = header['ssw'];
   console.log('▶ /3cpzj id->' +id + ` (${req.ip})`);
   if(saveData.user[id] && saveData.password[id]){
     if(saveData.password[id]==ps){const B = BBBpass('UP'+id,id,'yese');res.json({s: B});}
@@ -301,16 +301,16 @@ app.post('/3rPwjdrkdlq', (req, res) => {
   let body = req.body;
   //console.log(body);
   let sender = ''
-  if(Object.keys(saveData.user).includes(body['$I'])){sender+='idExist,'}
+  if(Object.keys(saveData.user).includes(body['sI'])){sender+='idExist,'}
   const Nicks = Object.values(saveData.user).map(item => item.nick);
-  if(Nicks.includes(body['$M'])){sender+='nickExist,'}
+  if(Nicks.includes(body['sM'])){sender+='nickExist,'}
   if(body.num>=2){sender+='accountMany,'}
   if(sender!==''){res.json({status:sender});return}
-  saveData.password[body['$I']] = body['$Q'];
-  saveData.user[body['$I']] = {
-    nick:body['$M'],
+  saveData.password[body['sI']] = body['sQ'];
+  saveData.user[body['sI']] = {
+    nick:body['sM'],
     prof:'https://ifh.cc/g/qaHX3T.png',
-    name:body['$I'],
+    name:body['sI'],
     about:body.about,
     color:body.color,
     mbti:body.mbti,

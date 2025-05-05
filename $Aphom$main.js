@@ -10,8 +10,8 @@ function $3$fhrmdlsrjatkvocl(i){
     method: 'POST',
     mode: 'cors',
     headers: {
-      $$O: i.$I,
-      $$W: i.$Q,
+      ssO: i.$I,
+      ssW: i.$Q,
     }
   })
   .then(response => response.json())
