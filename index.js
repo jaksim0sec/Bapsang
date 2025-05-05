@@ -40,12 +40,13 @@ app.use(express.static(path.join(__dirname), {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+/*
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
-}));
+}));*/
 
 let noneSaveData = {
   token: []
