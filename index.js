@@ -306,16 +306,16 @@ app.post('/3rPwjdrkdlq', (req, res) => {
   let body = req.body;
   //console.log(body);
   let sender = ''
-  if(Object.keys(saveData.user).includes(body['sI'])){sender+='idExist,'}
+  if(Object.keys(saveData.user).includes(body['$I'])){sender+='idExist,'}
   const Nicks = Object.values(saveData.user).map(item => item.nick);
-  if(Nicks.includes(body['sM'])){sender+='nickExist,'}
+  if(Nicks.includes(body['$M'])){sender+='nickExist,'}
   if(body.num>=2){sender+='accountMany,'}
   if(sender!==''){res.json({status:sender});return}
-  saveData.password[body['sI']] = body['sQ'];
-  saveData.user[body['sI']] = {
-    nick:body['sM'],
+  saveData.password[body['$I']] = body['$Q'];
+  saveData.user[body['$I']] = {
+    nick:body['$M'],
     prof:'https://ifh.cc/g/qaHX3T.png',
-    name:body['sI'],
+    name:body['$I'],
     about:body.about,
     color:body.color,
     mbti:body.mbti,
