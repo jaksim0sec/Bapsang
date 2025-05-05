@@ -20,10 +20,16 @@ HTML('#cover2 .highB').addEventListener('click', function () {
   else{$3$dnghlzhem1(2,fakeInfoLog);}
 });
 
+
 function $3$ghldnjsrkdlqdkfflaghkfehd(i){
   if(i==1){return};
-  console.log('dd')
+  console.log(i)
   let alertContent = '';
+  if(i=='finished'){
+    $3$dkffla('가입을 성공했어요','좋은 추억을 만들어봐요!');
+    setTimeout(()=>{location.href='/login'},500)
+  }
+
   if(i.includes('idExist')&&i.includes('nickExist')){
     alertContent='아이디와 닉네임이 이미 사용되고 있습니다'
   }

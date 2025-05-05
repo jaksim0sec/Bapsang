@@ -1,10 +1,13 @@
 //version 0.01
 const express = require('express');
-const session = require('express-session');
+//const session = require('express-session');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
+
+app.use(cors());
 /*const { initializeApp } = require("firebase/app");
 const { getAnalytics } = require("firebase/analytics");
 const firebaseConfig = {
