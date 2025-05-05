@@ -6,8 +6,19 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
+app.use(cors({
+  origin: '*',
+  allowedHeaders: [
+    'Content-Type',
+    '$$O',
+    '$$W',
+    'miz',
+    'yuqr',
+    'vpz',
+    'zptr'
+  ]
+}));
 
-app.use(cors());
 /*const { initializeApp } = require("firebase/app");
 const { getAnalytics } = require("firebase/analytics");
 const firebaseConfig = {
