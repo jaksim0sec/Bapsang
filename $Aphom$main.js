@@ -8,6 +8,7 @@ function $3$fhrmdlsrjatkvocl(i){
   console.log(i,i.$I,i.$Q)
   fetch('/3cpzj', {
     method: 'POST',
+    mode: 'cors',
     headers: {
       $$O: i.$I,
       $$W: i.$Q,
@@ -21,6 +22,7 @@ function $3$rPwjdrkdlq(i) {
   console.log(i);
   fetch('/3rPwjdrkdlq', {
     method: 'POST',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json'
     },

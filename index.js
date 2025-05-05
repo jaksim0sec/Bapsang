@@ -282,6 +282,8 @@ app.post('/getUnorm', (req, res) => {
 });
 
 app.post('/3cpzj', (req, res) => {
+  console.log('▶ RAW headers:', req.rawHeaders);
+  console.log('▶ PARSED headers object:', req.headers);
   let header = req.headers;
   //console.log(header)
   let id = header['$$o'];
