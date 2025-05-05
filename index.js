@@ -164,6 +164,11 @@ app.post('/postC', (req, res) => {
   res.json({ succOrfail: 'succ'});
 });
 
+app.post('/$3$wjdqhrkwudhrl', (req, res) => {
+  console.log('▶ /정보가져오기' + ` (${req.ip})`);
+  res.json(saveData);
+});
+
 app.post('/postCC', (req, res) => {
   console.log('▶ /postCC' + ` (${req.ip})`);
   let header = req.headers;
