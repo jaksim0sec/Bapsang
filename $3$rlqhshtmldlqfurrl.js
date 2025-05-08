@@ -15,7 +15,7 @@ HTML('body').innerHTML = `
     <div id="loader"></div>
     <header>
       <div id="logo" onclick="pageMove('/',1000)">
-        <img src="https://ifh.cc/g/tVs9Jo.png" />
+        <img src="https://ifh.cc/g/ZjHYT7.png" />
       </div>
       <div class="standHr"></div>
       <!--PC 와 타블렛 환경 네비게이션바-->
