@@ -49,6 +49,7 @@ function updateLoginState() {
       HTML('#logined').style.display = 'none';
       HTML('#not-logined').style.display = 'flex';
     }
+    if(HTML('#BfollowB')){HTML('#BfollowB').innerHTML = '+ 팔로우'}
   } else {
     HTML('#logined').style.display = 'none';
     HTML('#not-logined').style.display = 'none';
@@ -61,6 +62,7 @@ function updateLoginState() {
       HTML('#mob-logined').style.display = 'none';
       HTML('#mob-not-logined').style.display = 'flex';
     }
+    if(HTML('#BfollowB')){HTML('#BfollowB').innerHTML = '+'}
   }
 }
 
