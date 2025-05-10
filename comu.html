@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script src="$3$gpejtjfwjd.js"></script>
+  </head>
+  <body>
+    <style>
+
+    .BoxContent{
+      border: 2px solid #522d0a15;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 15px;
+      transition: all 0.5s ease;
+      overflow: hidden;
+    }
+    textarea{resize: vertical;}
+    #contentRow{
+        width: 70vw;
+        min-width: 340px;
+        max-width: 585px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comuBox{
+        width: 90%;
+        /*box-shadow: 0px 8px 5px #00000005, inset -5px -5px 15px #8d531215;*/
+        border-radius: 25px;
+        margin: 5px;
+        padding: 3%;
+        border: 2px solid #522d0a15;
+        animation: vanish 1s reverse ease;
+        margin-bottom: 15px;
+    }
+    
+    .BoxProf{
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+    .BoxImg{width: 50px;height:50px;margin-right: 6px;}
+    .BoxInfo {padding: 10px;}
+    .BoxNick {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    }
+    .BoxTime {font-size: 13px;color: #6c6c6c;}
+
+    .comuBox textarea{
+      width: 100%;
+      max-height: 300px;
+      transition: all 0.4s ease;
+      outline: none;
+    }
+    .comuBox textarea:hover{
+      border: 2px solid #522d0a50;
+    }.comuBox textarea:focus{
+      border: 2px solid #181818;
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 10px #00000020;
+      border-radius: 15px;
+    }
+
+    </style>
+    <main>
+    <input type="file" id="postImg" style="display: none;" onchange="$3$dlalwldhfflrl()">
+    <!--<div id="contentRow">-->
+    <div id="writeSpace" class="comuBox">
+
+    <div class="BoxProf">
+    <img class="BoxImg ProfSty"src="https://ifh.cc/g/qaHX3T.png"onerror="//this"id='writerProf'onclick='pageMove(`/mypage?u=${client.Name}`)' loading="lazy"/>
+    <div class="BoxInfo" onclick='pageMove(`/mypage?u=${client.Name}`)'>
+    <div class="BoxNick">@예시닉네임</div>
+    <div class="BoxTime">••••.•.••</div></div>
+    </div>
+
+
+    <textarea placeholder="당신의 생각을 사람들과 공유해보세요!" class='BoxContent'></textarea>
+    <div style = 'display:flex;justify-content:left;width:100%;align-items:center;'>
+    <span><button id="writeSend" class="highB">올리기</button></span>
+    <span><button style = 'margin-right:0px;' onclick="if(HTML('#postImgButton').innerHTML == '이미지추가'){HTML('#postImg').click();}else{$3$djqfhemcnlth()}"id='postImgButton'>이미지추가</button></span>
+    <span><img id = 'postedImg' src = '' style="height: 30px;border-radius:5px;"></span>
+
+    </div>
+    </div>
+    <div id="contentRow"></div>
+    </main>
+
+    <script>
+        let r = null;
+        let postImg = null;
+        async function $3$dlalwldhfflrl(){
+        r = await $3$dlalwldjqfhemqjxmsfhwlr(HTML('#postImg'))
+        postedImg = `<img src = '${r}'/>`;
+        HTML('#postedImg').src = r;
+        HTML('#postedImg').style.border = '1px solid #00000050';
+        HTML('#postImgButton').innerText = '업로드 취소 • • •'
+        
+        }
+        function $3$djqfhemcnlth(){
+          r= null;
+          HTML('#postImgButton').innerText = '이미지추가';
+          HTML('#postedImg').src = '';
+          postedImg = null;
+          HTML('#postedImg').style.border = 'none';
+        }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+        <script src="$iodryyomh.js" defer></script>
+        <script src="$3$rlqhshtmldlqfurrl.js" defer></script>
+        <script src="$Vpldud.js" defer></script>
+        <script src="$aphomdud.js" defer></script>
+        <script src="$aomlQstsz.js" defer></script>
+        <!--<script src="Login$IoDry.js" defer></script>-->
+        <script src="$dypt2.js" defer></script>
+        <script src="$vpmdpar.js" defer></script>
+        <script src="$drvitr.js" defer></script>
+    
+        <script src="comu$hryV.js" defer></script>
+        <script src="comu$dudIO.js" defer></script>
+        <script src="comu$3$qhdks.js" defer></script>
+        <script defer>setTimeout(()=>{HTML('#postImgButton').style.display = 'none'},150)</script>
+  </body>
+</html>

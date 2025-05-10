@@ -99,45 +99,30 @@ const K = {
   SD : saveData
 }
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-  console.log('▶ /' + ` (${req.ip})`);
+const routes = {
+  '/': 'index.html',
+  '/comu': 'comu.html',
+  '/login': 'login.html',
+  '/reg': 'reg.html',
+  '/mypage': 'mypage.html',
+  '/alarm': 'alarm.html',
+  '/setting': 'setting.html',
+  '/term': 'term.html',
+  '/space': 'errorr.html'
+};
+
+app.get('*', (req, res) => {
+  const file = routes[req.path];
+
+  if (file) {
+    res.sendFile(path.join(__dirname, file));
+    console.log(`▶ ${req.path} (${req.ip})`);
+  } else {
+    res.status(404).sendFile(path.join(__dirname, 'error.html'));
+    console.log(`▶ error ${req.path} (${req.ip})`);
+  }
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'login.html'));
-  console.log('▶ /login' + ` (${req.ip})`);
-});
-
-app.get('/reg', (req, res) => {
-  res.sendFile(path.join(__dirname, 'reg.html'));
-  console.log('▶ /reg' + ` (${req.ip})`);
-});
-
-app.get('/mypage', (req, res) => {
-  res.sendFile(path.join(__dirname, 'mypage.html'));
-  console.log('▶ /mypage' + ` (${req.ip})`);
-});
-
-app.get('/alarm', (req, res) => {
-  res.sendFile(path.join(__dirname, 'alarm.html'));
-  console.log('▶ /alarm' + ` (${req.ip})`);
-});
-
-app.get('/setting', (req, res) => {
-  res.sendFile(path.join(__dirname, 'setting.html'));
-  console.log('▶ /alarm' + ` (${req.ip})`);
-});
-
-app.get('/term', (req, res) => {
-  res.sendFile(path.join(__dirname, 'term.html'));
-  console.log('▶ /alarm' + ` (${req.ip})`);
-});
-
-app.get('/space', (req, res) => {
-  res.sendFile(path.join(__dirname, 'errorr.html'));
-  console.log('▶ /alarm' + ` (${req.ip})`);
-});
 
 app.post('/postC', (req, res) => {
   console.log('▶ /postC' + ` (${req.ip})`);

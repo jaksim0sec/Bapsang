@@ -1,5 +1,31 @@
 @import url('styles.css');
 
+
+textarea {
+  resize: vertical;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  box-shadow: inset 0px 4px 10px #572f0a20;
+  padding: 15px;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+textarea:hover {
+  border: 2px solid #cacaca;
+  box-shadow: inset 0px 4px 10px #572f0a20;
+}
+
+textarea:focus {
+  border: 1.5px solid #00000020;
+  color: #00000090;
+  box-shadow: inset -4px -4px 10px #572f0a20, 0px 10px 5px #44444420;
+  border-radius: 15px;
+  outline: none;
+  transform: translateY(-10px);
+}
+
 #contentListCover {
   width: 70%;
   min-width: 300px;
@@ -128,22 +154,28 @@
 .contentContent {
   width: 100%;
   border-radius: 20px;
-  box-shadow: inset 0px 4px 10px #572f0a20;
+  box-shadow: inset 0px 4px 10px #572f0a18;
   padding: 15px;
   font-size: 15px;
   margin-bottom: 15px;
   line-height: 1.8;
+  
+  border: 2px solid #522d0a15;
 }
 
 .contentTail {
   width: 100%;
   display: flex;
+  padding: 4px;
+  padding-top:0px;
   align-items: center;
   font-family: Arial;
   font-size: 14px;
 }
 
+
 .contentLike {
+  border: 1.5px solid #311E0F15;
   padding: 0 8px;
   border-radius: 40px;
   height: 28px;
@@ -176,7 +208,7 @@
 }
 
 .L0 {
-  background-color: #eaeaea;
+  background-color: #572f0a10;
   color: #525151;
 }
 .contentLike span{
@@ -205,10 +237,11 @@
 }
 
 .contentComButton {
+  border: 1.5px solid #311E0F15;
   padding: 0 8px;
   border-radius: 40px;
   height: 28px;
-  background-color: #eaeaea;
+  background-color: #572f0a10;
   color: #525151;
   display: flex;
   align-items: center;
@@ -257,5 +290,29 @@ textarea:focus {
 .writerText{
   color:#00000038;
   font-size: 15px;
+  border:none;
+}
+
+.commentReplyCover{
+  width: 100%;
+  padding: 8px;
+  border-radius:15px;
+  margin-top: 5px;
+  border: 2px solid #522d0a15;
+  background-color: #FFFFFF;
+}
+
+.commentCover textarea{
+  box-shadow:none;
+  border:none;
+  border-radius: 10px;
+  height: auto;
+}
+.commentCover textarea:hover{
+  transform:none;
+  border:none;
+}
+.commentCover textarea:focus{
+  transform:none;
   border:none;
 }

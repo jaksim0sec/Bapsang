@@ -389,30 +389,6 @@ main {
   color: #248add;
 }
 
-textarea {
-  resize: vertical;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  box-shadow: inset 0px 4px 10px #572f0a20;
-  padding: 15px;
-  font-size: 15px;
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
-textarea:hover {
-  border: 2px solid #cacaca;
-  box-shadow: inset 0px 4px 10px #572f0a20;
-}
-
-textarea:focus {
-  border: 1.5px solid #00000020;
-  color: #00000090;
-  box-shadow: inset -4px -4px 10px #572f0a20, 0px 10px 5px #44444420;
-  border-radius: 20px;
-  outline: none;
-  transform: translateY(-10px);
-}
 
 .color {
   color: #45d38c;
@@ -460,6 +436,7 @@ textarea:focus {
   outline: 2px solid #00000050;
   box-sizing: border-box;
   object-fit: cover;
+  overflow: hidden;
 }
 
 

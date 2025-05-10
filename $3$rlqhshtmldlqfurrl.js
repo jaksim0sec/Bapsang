@@ -20,7 +20,7 @@ HTML('body').innerHTML = `
       <div class="standHr"></div>
       <!--PC 와 타블렛 환경 네비게이션바-->
       <nav>
-        <div onclick="pageMove('/',1000);">커뮤니티</div>
+        <div onclick="pageMove('/comu',1000);">커뮤니티</div>
         <div onclick="pageMove('/space',1000);">스페이스</div>
         <div onclick="pageMove('/term',1000);">공지사항</div>
         <div onclick="pageMove('/mypage',1000);">마이페이지</div>
@@ -85,7 +85,7 @@ HTML('body').innerHTML = `
         <div class="standHr" style="height: 15px"></div>
         <div style="width: 150px; height: 15px"></div>
         <div id="mobileNav-R">
-          <div onclick="pageMove('/',1000);">커뮤니티</div>
+          <div onclick="pageMove('/comu',1000);">커뮤니티</div>
           <div onclick="pageMove('/space',1000);">스페이스</div>
           <div onclick="pageMove('/term',1000);">공지사항</div>
           <div onclick="pageMove('/mypage',1000);">마이페이지</div>

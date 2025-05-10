@@ -98,8 +98,8 @@ async function postCC(vpmt, n) {
         });
         HTML('#comment' + n).innerHTML =
           showCC(C[n]) +
-          `<textarea placeholder="${C[n].user.nick}님의 생각에 대해 반응해보세요!" id='writerText${n}'></textarea>
-        <button id="writeSend${n}" class="highB">올리기</button>`;
+          `<div class='commentReplyCover'><textarea placeholder="${C[n].user.nick}님의 생각에 대해 반응해보세요!" id='writerText${n}'></textarea>
+        <button id="writeSend${n}" class="highB">올리기</button></div>`;
         HTML(`#writeSend${n}`).onclick = function () {
           postCC(HTML('#writerText' + n).value, n);
         };
@@ -240,10 +240,8 @@ function showC() {
     </div>
     <div id='comment${ii}' class='commentCover'>
     ${commentContenter}
-    <textarea placeholder="${
-      c.user.nick
-    }님의 생각에 대해 반응해보세요!" style = ''id='writerText${ii}'class='writerText'></textarea>
-    <button id="writeSend${ii}" class="highB">올리기</button>
+    <div class='commentReplyCover'><textarea placeholder="${c.user.nick}님의 생각에 대해 반응해보세요!" id='writerText${ii}'></textarea>
+        <button id="writeSend${ii}" class="highB">올리기</button></div>
     </div>
     `;
       cont.appendChild(CC);
