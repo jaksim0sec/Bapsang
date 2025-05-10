@@ -11,7 +11,7 @@ async function timeUser(){
     if(who.status=='none'){}
     else{setTimeout(()=>{
       HTML('#Bprofile img').src = who.prof;
-      HTML('#Bnick').innerHTML = `<span class="tag"title="스태프 훈장" style="display:none;"><img src="https://ifh.cc/g/rrOtdm.png" style = "height:28px;margin-right:${window.innerWidth > 768?2:0}px;"></span>${who.nick} <span id='Bname'>(${window.innerWidth > 768?who.name:''})`;
+      HTML('#Bnick').innerHTML = `<span class="tag"title="스태프 훈장" style="display:none;"><img src="https://ifh.cc/g/rrOtdm.png" style = "height:28px;margin-right:${window.innerWidth > 768?2:0}px;"></span>${who.nick} <span id='Bname'>${window.innerWidth > 768?'('+who.name+')':''}`;
       HTML('#Babout').innerHTML = `` + who.about;
       HTML('#Bfollow').innerHTML = `<span style="font-weight:normal">팔로워</span> ${who.follow[1]} <span style="font-weight:normal">팔로우</span> ${who.follow[0]}`;
       HTML('#background').style.backgroundColor = who.color;
