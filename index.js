@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+app.set('trust proxy', true);
 
 app.use(cors({
   origin: '*',
@@ -63,6 +64,7 @@ let noneSaveData = {
   token: []
 }
 let saveData = {
+  ban:[],
   user:{
     'park0sec':{
       nick:'박영초',
@@ -152,6 +154,19 @@ app.post('/postC', (req, res) => {
 app.post('/$3$wjdqhrkwudhrl', (req, res) => {
   console.log('▶ /정보가져오기' + ` (${req.ip})`);
   res.json(saveData);
+});
+app.post('/$dryMreOmgp', (req, res) => {
+  //console.log('▶ /정보수정하기' + ` (${req.ip})`);
+  let header = req.headers;
+  let body = req.body;
+  let u = body.who;
+  let w = body.what;
+  let h = body.how;
+console.log('▶ /정보수정하기' ,u,w,h+` (${req.ip})`)
+
+  if(Object.keys(saveData.user).includes(u)){
+saveData.user[u][w]=h;res.json({r:true})}else{res.json({r:false});}
+
 });
 
 app.post('/postCC', (req, res) => {
@@ -293,7 +308,7 @@ app.post('/3rPwjdrkdlq', (req, res) => {
   let sender = ''
   if(Object.keys(saveData.user).includes(body['$I'])){sender+='idExist,'}
   const Nicks = Object.values(saveData.user).map(item => item.nick);
-  if(Nicks.includes(body['$M'])){sender+='nickExist,'}
+  if(Nicks.includes(body['$M'].trim())){sender+='nickExist,'}
   if(body.num>=2){sender+='accountMany,'}
   if(sender!==''){res.json({status:sender});return}
   saveData.password[body['$I']] = body['$Q'];
