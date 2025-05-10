@@ -486,6 +486,7 @@ const formattedDate = now.getFullYear() + '.' + (parseInt(now.getMonth()) + 1)+'
 app.listen(3000, () => {
   console.log('▶▶ Running');
 });
+setInterval(()=>{fixData(saveData)},600000)
 
 console.log(BBBpass('이 프로젝트는 바보상자크루에서 1인 개발되었습니다. This project was developed solo by BaBoBox Crew.'));
 console.log(BBBdepass('1153걃îéčþČčâÝ'));
