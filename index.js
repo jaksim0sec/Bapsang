@@ -5,6 +5,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient('https://igclsxhcqikzrczohime.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnY2xzeGhjcWlrenJjem9oaW1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4OTY1NDUsImV4cCI6MjA2MjQ3MjU0NX0.AL0BTiuIRmJLmYkcDBscNqFRh6temQ-NdYP51bFb5tk');
+const rId = 1;
 app.set('trust proxy', true);
 
 app.use(cors({
@@ -100,6 +103,42 @@ const K = {
   NSD: noneSaveData,
   SD : saveData
 }
+
+async function getData() {
+  const { data, error } = await supabase
+    .from('saveData')
+    .select('*')
+    .eq('id', rId);
+
+  if (error) {
+    console.error("데이터 가져오기 오류:", error);
+    return;
+  }
+
+  if (data.length === 0) {
+    console.log(`id ${rId}에 해당하는 데이터가 없습니다.`);
+    return;
+  }
+
+  const saveData = data[0];
+
+  await fixData(saveData);
+}
+
+async function fixData(saveData) {
+  const { data: updateData, error: updateError } = await supabase
+    .from('saveData')
+    .update({ content: saveData.content })
+    .eq('id', rId);
+
+  if (updateError) {
+    console.error("데이터 업데이트 오류:", updateError);
+  } else {
+    console.log("데이터가 업데이트되었습니다:", updateData);
+  }
+}
+
+getData();
 
 const routes = {
   '/': 'index.html',
