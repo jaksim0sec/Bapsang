@@ -78,7 +78,7 @@ HTML('body').innerHTML = `
           </div>
           <div id="mob-not-logined">
             <button class="highB" style="width: 100px" onclick="pageMove('/login',1000)">로그인</button>
-            <button class="midB" style="width: 100px" onclick="pageMove('/login',1000)">회원가입</button>
+            <button class="midB" style="width: 100px" onclick="pageMove('/reg',1000)">회원가입</button>
           </div>
         </div>
         <div style="width: 150px; height: 15px"></div>
@@ -100,8 +100,8 @@ HTML('body').innerHTML = `
 </div>
 </div>`;
 
-const nameList = {'/':'홈','/login':'로그인','/reg':'회원가입','/mypage':'마이페이지','/alarm':'알림','/setting':'설정','/term':'이용약관 및 정책'}
-document.title = `바보상자 : ${nameList[window.location.pathname]}`;
+const nameList = {'/':'홈','/login':'로그인','/reg':'회원가입','/mypage':'마이페이지','/alarm':'알림','/setting':'설정','/term':'이용약관 및 정책','/comu':'개발자 실험실'}
+document.title = `${nameList[window.location.pathname]}ㆍ바보상자`;
 setTimeout(()=>{
   HTML('main').style.display = 'flex';
   HTML('#loader').style.opacity = '0';
