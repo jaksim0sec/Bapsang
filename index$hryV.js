@@ -71,6 +71,7 @@ async function postC(vpmt) {
 }
 
 async function postCC(vpmt, n) {
+  if(vpmt.trim().length==0){return}
   if (!($$MMM && client.Name && login)) {
     if (!($$MMM && client.Name) && login) {
       warn();
