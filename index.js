@@ -273,7 +273,7 @@ app.post('/delC', (req, res) => {
     console.error('No $num <- body');
     return res.status(400).json({ error: 'No $num <- body' });
   }
-  if(saveData.comu[num].user.name == BBBdepass(token).replace('UP','')){
+  if(saveData.comu[num].user.name == BBBdepass(token).replace('UP','')||saveData.user[BBBdepass(token).replace('UP','')].ssfzom){
     saveData.comu.splice(num,1);
     res.json({ succOrfail: 'succ' });
   }
