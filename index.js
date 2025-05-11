@@ -67,7 +67,9 @@ let noneSaveData = {
   token: []
 }
 let saveData = {
-  ban:[],
+  ban:{
+  ip:[],id:[]
+  },
   user:{
     'park0sec':{
       nick:'박영초',
@@ -79,7 +81,7 @@ let saveData = {
       hobby:'',
       setting:{},
       type:'admin',
-      follow:[0,0],
+      follow:[0,0],xp:100000,ssfzom:true
     },
     'test':{
       nick:'밬밬',
@@ -91,7 +93,7 @@ let saveData = {
       hobby:'',
       setting:{},
       type:'norm',
-      follow:[0,0],
+      follow:[0,0],xp:100000
     }
   },
   password:{'park0sec':'coolpassword','test':'a'},
@@ -154,7 +156,9 @@ const routes = {
 
 app.get('*', (req, res) => {
   const file = routes[req.path];
-
+  if(saveData.ban.ip.includes(req.ip)){
+res.status(404).sendFile(path.join(__dirname, 'error.html'))
+}
   if (file) {
     res.sendFile(path.join(__dirname, file));
     console.log(`▶ ${req.path} (${req.ip})`);
@@ -332,6 +336,8 @@ app.post('/3cpzj', (req, res) => {
   //console.log(header)
   let id = header['sso'];
   let ps = header['ssw'];
+  if(saveData.ban.id.includes(id)){res.json({ s: 'N'});}
+
   console.log('▶ /3cpzj id->' +id + ` (${req.ip})`);
   if(saveData.user[id] && saveData.password[id]){
     if(saveData.password[id]==ps){const B = BBBpass('UP'+id,id,'yese');res.json({s: B});}
@@ -363,6 +369,7 @@ app.post('/3rPwjdrkdlq', (req, res) => {
     type:'norm',
     projectNum:[],
     follow:[0,0],
+    xp:0,
   }
   res.json({status:'finished'})
 });
@@ -408,7 +415,7 @@ app.post('/test', (req, res) => {
   }
 });
 
-// 기타 함수들...
+// 기타 함수
 function random(min, max) {
   const time = Date.now();
   let seed = time ^ (time >> 3);
