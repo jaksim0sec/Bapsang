@@ -129,7 +129,7 @@ async function getData() {
 async function fixData(saveData) {
   const { data: updateData, error: updateError } = await supabase
     .from('saveData')
-    .update({ content: saveData })
+    .update({ saveData })
     .eq('id', rId);
 
   if (updateError) {
