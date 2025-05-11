@@ -119,12 +119,11 @@ async function getData() {
 
   if (data.length === 0) {
     console.log(`id ${rId}에 해당하는 데이터가 없습니다.`);
+    await fixData(saveData);
     return;
   }
 
   const saveData = data[0];
-
-  await fixData(saveData);
 }
 
 async function fixData(saveData) {
