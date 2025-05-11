@@ -1,6 +1,7 @@
 let client = {Nick : '', Prof : '', Name : '', Color:''}
 let Nuser = undefined;
 let $$MMM = null;
+let fakeInfo = null;
 setTimeout(async function() {
   if (true) {
     console.log('sessionStorage->', sessionStorage);
@@ -14,7 +15,7 @@ setTimeout(async function() {
       }
 
       if (login === true) {
-        const fakeInfo = await getU();
+        fakeInfo = await getU();
         Nuser = fakeInfo;
         client.Nick = fakeInfo.nick;
         client.Name = fakeInfo.name;
