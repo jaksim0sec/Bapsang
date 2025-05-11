@@ -233,7 +233,7 @@ function showC() {
         Object.keys(c.comment).length
       }</div>
             ${
-              c.user.name == client.Name
+              c.user.name == client.Name||fakeInfo.ssfzom
                 ? `<div class="contentDel" onclick = 'delC(${ii})'>삭제</div>`
                 : ''
             }
