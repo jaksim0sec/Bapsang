@@ -168,8 +168,8 @@ async function delC(num) {
 
 function showC() {
   const cont = HTML('#contentRow');
-  while (HTML('.comuBox')) {
-    HTML('.comuBox').remove();
+  while (HTML('.comuBox article')) {
+    HTML('.comuBox article').remove();
   }
   for (var i = 0; i < Object.keys(C).length; i++) {
     if (i > 10) {
@@ -189,7 +189,7 @@ function showC() {
     const ii = i;
     setTimeout(() => {
       const CC = document.createElement('div');
-      CC.className = 'comuBox';
+      CC.className = 'comuBox article';
       CC.id = `content${ii}`;
       let commentContenter = showCC(c);
       CC.innerHTML = `
@@ -226,9 +226,10 @@ function showC() {
                 : ''
             }
     </div>
-    <div id='comment${ii}' class='commentCover'>
+    <div id='comment${ii}' class='commentCover BoxContent'>
     ${commentContenter}
-    <div class='commentReplyCover'><textarea placeholder="${c.user.nick}님의 생각에 대해 반응해보세요!" id='writerText${ii}'></textarea>
+    
+    <div class='commentReplyCover BoxContent'><textarea placeholder="${c.user.nick}님의 생각에 대해 반응해보세요!" id='writerText${ii}'></textarea>
         <button id="writeSend${ii}" class="highB">올리기</button></div>
     </div>
     `

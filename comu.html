@@ -8,13 +8,13 @@
 
     .BoxContent{
       border: 2px solid #522d0a15;
-      border-radius: 10px;
+      border-radius: 15px;
       padding: 10px;
       font-size: 15px;
       transition: all 0.5s ease;
       overflow: hidden;
     }
-    textarea{resize: vertical;}
+    textarea{resize: vertical;font-weight: bolder;}
     #contentRow{
         width: 70vw;
         min-width: 340px;
@@ -23,6 +23,7 @@
         flex-direction: column;
         align-items: center;
     }
+    .article{animation: vanish 1s reverse ease;}
 
     .comuBox{
         width: 90%;
@@ -58,30 +59,82 @@
     }
     .comuBox textarea:hover{
       border: 2px solid #522d0a50;
-    }.comuBox textarea:focus{
+    }
+    #writeSpace textarea:focus{
       border: 2px solid #181818;
       transform: translateY(-10px);
       box-shadow: 0px 8px 10px #00000020;
       border-radius: 15px;
     }
+    #writeSpace textarea{margin-bottom: 10px;}
+    .BoxContent{
+      padding: 15px;
+    }
 
     .BoxTail {
-  width: 100%;
-  display: flex;
-  padding: 4px;
-  padding-top:0px;
-  align-items: center;
-  font-family: Arial;
-  font-size: 14px;
+      width: 100%;
+      display: flex;
+      padding: 4px;
+      padding-top:0px;
+      align-items: center;
+      font-family: Arial;
+      font-size: 14px;
+      margin-top: 10px;
     }
-  .BoxTail div{
+    .BoxTail div{
+      padding: 0 8px;
+      border-radius: 40px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 5px;
+    }
     
-  }    
+    .commentCover{width: 100%;margin-top: 10px;display: none;animation: vanish 1s reverse ease;}
+    .commentReplyCover{width: 100%;position: relative;}
+    .commentReplyCover textarea{border:none;height: 50px;margin-bottom: 35px;resize: none;}
+    .commentReplyCover textarea:hover{border:none;}
+    .commentReplyCover textarea:focus{border:none;}
+    .commentReplyCover button{position: absolute; right: 5px; bottom: 5px;}
+    .commentReplyCover button:hover{border:0.1px solid;}
+
+    
+    @keyframes vanish {
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+      99% {
+        opacity: 0;
+        visibility: hidden;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+        visibility: hidden;
+      }
+      1% {
+        opacity: 0;
+        visibility: hidden;
+      }
+      100% {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
     </style>
     <main>
     <input type="file" id="postImg" style="display: none;" onchange="$3$dlalwldhfflrl()">
     <!--<div id="contentRow">-->
+    <div id="contentRow">
     <div id="writeSpace" class="comuBox">
 
     <div class="BoxProf">
@@ -94,13 +147,13 @@
 
     <textarea placeholder="당신의 생각을 사람들과 공유해보세요!" class='BoxContent'></textarea>
     <div style = 'display:flex;justify-content:left;width:100%;align-items:center;'>
-    <span><button id="writeSend" class="highB">올리기</button></span>
+    <span><button id="sendArticle" class="highB">올리기</button></span>
     <span><button style = 'margin-right:0px;' onclick="if(HTML('#postImgButton').innerHTML == '이미지추가'){HTML('#postImg').click();}else{$3$djqfhemcnlth()}"id='postImgButton'>이미지추가</button></span>
     <span><img id = 'postedImg' src = '' style="height: 30px;border-radius:5px;"></span>
 
     </div>
     </div>
-    <div id="contentRow"></div>
+    </div>
     </main>
 
     <script>
