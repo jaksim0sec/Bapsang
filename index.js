@@ -123,13 +123,13 @@ async function getData() {
     return;
   }
 
-  const saveData = data[0];
+  saveData = data[0];
 }
 
 async function fixData(saveData) {
   const { data: updateData, error: updateError } = await supabase
     .from('saveData')
-    .update({ content: saveData.content })
+    .update({ content: saveData })
     .eq('id', rId);
 
   if (updateError) {
