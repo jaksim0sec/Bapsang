@@ -273,7 +273,7 @@ function showCC(c) {
           loading="lazy"
             class="contentUserProf ProfSty"
             src="${c.comment[j].user.prof}"
-            style="outline-color: ${c.comment[j].user.color};"
+            style="width:40px;height:40px;min-height:40px;min-width:40px;outline-color: ${c.comment[j].user.color};"
             onerror="//this"
             onclick='pageMove("/mypage?u=${c.comment[j].user.name}")'
           />
