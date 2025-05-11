@@ -109,7 +109,7 @@ const K = {
 async function getData() {
   const { data, error } = await supabase
     .from('saveData')
-    .select('*')
+    .select('content')
     .eq('id', rId);
 
   if (error) {
@@ -117,30 +117,29 @@ async function getData() {
     return;
   }
 
-  if (data.length === 0) {
-    console.log(`id ${rId}에 해당하는 데이터가 없습니다.`);
+  if (data.length === 0 || !data[0].content) {
+    console.log(`id ${rId}에 해당하는 content 데이터가 없습니다.`);
     await fixData(saveData);
     return;
   }
 
-  saveData = data[0];
+  saveData = data[0].content;
+  console.log("saveData 불러오기 완료");
 }
 
 async function fixData(saveData) {
   const { data: updateData, error: updateError } = await supabase
     .from('saveData')
-    .update({ saveData })
+    .update({ content: saveData })
     .eq('id', rId);
 
   if (updateError) {
     console.error("데이터 업데이트 오류:", updateError);
   } else {
-    console.log("데이터가 업데이트되었습니다:", updateData);
+    console.log("saveData가 content 컬럼에 저장되었습니다.");
   }
 }
-
-getData();
-
+getData()
 const routes = {
   '/': 'index.html',
   '/comu': 'comu.html',
