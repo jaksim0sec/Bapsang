@@ -268,7 +268,7 @@ function showCC(c) {
             }")'>#${
       c.comment[j].user.nick +
       (c.comment[j].user.type == 'admin'
-        ? '<span class="tag"title="스태프 훈장"style='width:10px'><img src="https://ifh.cc/g/rrOtdm.png"></span>'
+        ? '<span class="tag"title="스태프 훈장"><img src="https://ifh.cc/g/rrOtdm.png"></span>'
         : '')
     }</span><span style="color:#00000040;font-size:11px;margin-left:5px;">(${
       c.comment[j].time
