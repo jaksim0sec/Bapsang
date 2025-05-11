@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       }
       let $3$sodyd = HTML('#write textarea').value;
-      if ($3$sodyd === '') {$3$rmfrudrh(2);return;}
+      if ($3$sodyd.trim() === '') {$3$rmfrudrh(2);return;}
       if($3$sodyd.length>300){$3$rmfrudrh(1);return}
       $3$sodyd = $3$htmlxkfcnf(DOMPurify.sanitize($3$sodyd));
       $3$sodyd = $goayrt($3$sodyd);
