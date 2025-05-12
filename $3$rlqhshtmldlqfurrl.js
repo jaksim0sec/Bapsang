@@ -100,7 +100,7 @@ HTML('body').innerHTML = `
 </div>
 </div>`;
 
-const nameList = {'/':'홈','/login':'로그인','/reg':'회원가입','/mypage':'마이페이지','/alarm':'알림','/setting':'설정','/term':'이용약관 및 정책','/comu':'개발자 실험실'}
+const nameList = {'/':'홈','/login':'로그인','/reg':'회원가입','/mypage':'마이페이지','/alarm':'알림','/setting':'설정','/term':'이용약관 및 정책','/comu':'커뮤니티'}
 document.title = `${nameList[window.location.pathname]}ㆍ바보상자`;
 setTimeout(()=>{
   HTML('main').style.display = 'flex';
