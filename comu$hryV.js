@@ -165,8 +165,8 @@ async function delC(num) {
 
 function showC() {
   const cont = HTML('#contentRow');
-  while (HTML('.comuBox article')) {
-    HTML('.comuBox article').remove();
+  while (HTML('.article')) {
+    HTML('.article').remove();
   }
   for (var i = 0; i < Object.keys(C).length; i++) {
     if (i > 10) {
@@ -186,7 +186,7 @@ function showC() {
     const ii = i;
     setTimeout(() => {
       const CC = document.createElement('div');
-      CC.className = 'comuBox article';
+      CC.classList.add('comuBox', 'article');
       CC.id = `content${ii}`;
       let commentContenter = showCC(c);
       CC.innerHTML = `
@@ -252,7 +252,7 @@ function showCC(c) {
       return match.includes('i.ibb')?match:`<span><a href="${match}" target="_blank" class="link">${match}</a></span>`;
     });
     commentContenter += `
-    <div class='commentC'>
+    <div class='commentC' style='margin-bottom: 15px;'>
     <div class="commentUser">
           <img
           loading="lazy"
@@ -280,6 +280,7 @@ function showCC(c) {
     ${j < c.comment.length - 1 ? '<hr style="opacity:0.3;width: 98%;">' : ''}
     `;
   }
+  if(c.comment.length>0){commentContenter+='<div style="width:100%;height:15px;"></div>'}
   return commentContenter;
 }
 

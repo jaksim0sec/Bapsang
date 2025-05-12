@@ -5,14 +5,17 @@
   </head>
   <body>
     <style>
-
+    button{padding: 12px 15px;}
+    .highB:hover , button:hover{border-width:0.1px;padding: 12px 15px;}
     .BoxContent{
       border: 2px solid #522d0a15;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 10px;
       font-size: 15px;
       transition: all 0.5s ease;
       overflow: hidden;
+      
+      box-shadow: inset 0px 5px 7px #572f0a10;
     }
     textarea{resize: vertical;font-weight: bolder;}
     #contentRow{
@@ -26,6 +29,7 @@
     .article{animation: vanish 1s reverse ease;}
 
     .comuBox{
+        box-shadow: inset -5px -5px 7px #572f0a10;
         width: 90%;
         /*box-shadow: 0px 8px 5px #00000005, inset -5px -5px 15px #8d531215;*/
         border-radius: 25px;
@@ -56,15 +60,16 @@
       max-height: 300px;
       transition: all 0.4s ease;
       outline: none;
+      background-color: white;
     }
     .comuBox textarea:hover{
       border: 2px solid #522d0a50;
     }
     #writeSpace textarea:focus{
-      border: 2px solid #181818;
+      border: 2px solid #7a7a7a;
       transform: translateY(-10px);
       box-shadow: 0px 8px 10px #00000020;
-      border-radius: 15px;
+      border-radius: 25px;
     }
     #writeSpace textarea{margin-bottom: 10px;}
     .BoxContent{
@@ -82,34 +87,68 @@
       margin-top: 10px;
     }
     .BoxTail div{
+      border: 1.5px solid #311E0F15;
       padding: 0 8px;
       border-radius: 40px;
       height: 28px;
+      background-color: #572f0a10;
+      color: #525151;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 5px;
     }
-    
+
+    .contentLike span{
+      color: #525151;
+      margin-right: 2px;
+    }
+    .L0 {
+      background-color: #572f0a10;
+      color: #525151;
+    }
+
+    .BoxTail .L1 {
+      background-color: #fd4766;
+      color: #fff;
+    }
+    .L1 *{
+      filter: brightness(10);
+    }
+
+    .L1:hover {
+      background-color: #ff8189;
+      color: rgb(253, 234, 234);
+    }
+    .BoxTail div:hover {
+      background-color: #e0e0e0;
+      color: rgb(59, 59, 59);
+      transform: translateY(-2px);
+    }
+    .BoxTail .contentDel{
+      border-color: transparent;
+      background-color: transparent;
+    }    
+
     .commentCover{
       width: 100%;margin-top: 10px;display: none;
       animation: vanish 1s reverse ease;
       flex-direction: column;
       align-items: bottom;
       justify-content: center;
-      background:#00000002;
+      background:#00000002;padding:20px;
     }
     .commentRow{width: 100%}
     .commentUser {
      display: flex;
      align-items: center;
-     margin-bottom: 5px;
+     margin-top: 15px;
      width: 100%;
     }
       
-    .commentUser img{width:40px;min-width:40px;height:40px;margin-right:5px}
-    .commentRow .tag{max-width:10px;}
-    .commentReplyCover{width: 100%;position: relative;background:white;}
+    .commentUser .ProfSty{width:40px;min-width:40px;height:40px;margin-right:12px}
+    .commentRow .tag img{display:inline-block;}
+    .commentReplyCover{width: 100%;position: relative;background:white;box-shadow: none;}
     .commentReplyCover textarea{border:none;height: 50px;margin-bottom: 35px;resize: none;}
     .commentReplyCover textarea:hover{border:none;}
     .commentReplyCover textarea:focus{border:none;}
@@ -164,7 +203,7 @@
     <textarea placeholder="당신의 생각을 사람들과 공유해보세요!" class='BoxContent'></textarea>
     <div style = 'display:flex;justify-content:left;width:100%;align-items:center;'>
     <span><button id="sendArticle" class="highB">올리기</button></span>
-    <span><button style = 'margin-right:0px;' onclick="if(HTML('#postImgButton').innerHTML == '이미지추가'){HTML('#postImg').click();}else{$3$djqfhemcnlth()}"id='postImgButton'>이미지추가</button></span>
+    <span><button style = 'margin:0px;padding:10px;' onclick="if(HTML('#postImgButton').innerHTML == '이미지추가'){HTML('#postImg').click();}else{$3$djqfhemcnlth()}"id='postImgButton'>이미지추가</button></span>
     <span><img id = 'postedImg' src = '' style="height: 30px;border-radius:5px;"></span>
 
     </div>
