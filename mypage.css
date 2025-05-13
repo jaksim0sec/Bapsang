@@ -4,7 +4,7 @@ main{display: block;}
   width: 100%;
   height: 200px;
   position: relative;
-  border-radius: 10px;
+  border-radius: 14px;
   background-color: #F7E0CD;;
 }
 
@@ -17,7 +17,7 @@ main{display: block;}
   border-radius: 50%;
   outline: 13px solid white;
   transition: all 1s ease;
-  border: 3px solid #00000015;
+  border: 5px solid #00000015;
   transform: translateY(calc(-50% + 20px));
   background-color: white;
   overflow: hidden;
@@ -114,20 +114,18 @@ main{display: block;}
 
 @media (max-width: 768px) {
   #background #Bprofile{
-    width: 110px;
-    height: 110px;
+    width: 110px;height: 110px;
     bottom: calc(-50% - 25px);
-    outline: 5px solid white;
+    outline: 3px solid white;
   }
   #background #Bnick{
     position: absolute;
-    max-width: 180px;
+    font-size:22px;
     height: 68;
     display: flex;
     flex-direction: column;
     bottom: -60px;
-    font-size: 28px;
-    left: calc(5% + 130px);
+    left: calc(5% + 120px);
     transition: all 0.5s ease;
     gap: 0px;
     
@@ -138,17 +136,16 @@ main{display: block;}
   }
 
   main{width: 100vw;padding: 11px;}
-  #background #Bname{
-    font-size: 13px;
-  }
   #background #Babout{
     position: absolute;
     top: 280px;
-    left: calc(5% + 130px);
+    left: calc(5% + 120px);
     font-size: 12px;
     transition: all 0.5s ease;
     font-weight: 750;
   }
+  .tag img{height: 12px;}
+  #Bname{display: none;}
 }
 
 #board{
