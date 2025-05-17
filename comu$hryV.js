@@ -24,7 +24,7 @@ function getC(type) {
   fetch('/getC', {
     method: 'POST',
     headers: {
-      miz: 'max',
+      miz: 10,
       yuqr: type,
     },
   })
@@ -55,7 +55,7 @@ async function postC(vpmt) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ vpmt, omgp: $$MMM }),
+      body: JSON.stringify({ vpmt, omgp: $$MMM , where:'comu'}),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -85,7 +85,7 @@ async function postCC(vpmt, n) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ vpmt, omgp: $$MMM, num: n }),
+      body: JSON.stringify({ vpmt, omgp: $$MMM, num: n, where:'comu' }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -122,7 +122,7 @@ async function likeC(num) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ num: num, omgp: $$MMM }),
+      body: JSON.stringify({ num: num, omgp: $$MMM , where:'comu'}),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -150,7 +150,7 @@ async function delC(num) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ num: num, omgp: $$MMM }),
+      body: JSON.stringify({ num: num, omgp: $$MMM, where:'comu' }),
     })
       .then((response) => response.json())
       .then((data) => {

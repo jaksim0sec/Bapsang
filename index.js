@@ -43,15 +43,13 @@ const analytics = getAnalytics(app);
 
 // 정적 파일 제공
 app.use(express.static(path.join(__dirname), {
-  setHeaders: function (res, filePath) {
-    if (filePath.endsWith('.css')) {
-      res.set('Content-Type', 'text/css');
-    }
-    if (filePath.endsWith('.js')) {
-      res.set('Content-Type', 'application/javascript');
-    }
+  maxAge: '1d',
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.css')) res.set('Content-Type', 'text/css');
+    if (filePath.endsWith('.js')) res.set('Content-Type', 'application/javascript');
   }
 }));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -99,43 +97,88 @@ let saveData = {
   password:{'park0sec':'coolpassword','test':'a'},
   comu:[
   ],
+  space:{art:[],code:[],}
 }
 
 const K = {
   NSD: noneSaveData,
   SD : saveData
 }
-
 async function getData() {
   const { data, error } = await supabase
     .from('$stOF')
-    .select('id') 
-    .eq('id', rId);
+    .select('data');  // id도 같이 받아야 update 가능
 
   if (error) {
     console.error("데이터 가져오기 오류:", error);
     return;
   }
+  console.log(data);
 
-  if (data.length === 0) {
-    console.log(`id ${rId}에 해당하는 데이터가 없습니다.`);
-    await fixData(saveData); 
+  if (!data || data.length === 0) {
+    console.log(`테이블에 row가 없으므로 새로 생성합니다.`);
+    await insertInitialData(saveData);
     return;
   }
 
-  console.log("데이터가 이미 존재합니다:", data);
+  if (!data[0].data) {
+    console.log(`data 컬럼 값이 없습니다.`);
+    await fixData(saveData);
+    return;
+  }
+
+  saveData = data[0].data;
+  console.log("saveData 불러오기 완료:", saveData);
 }
+
+async function insertInitialData(saveData) {
+  // 먼저 기존 row가 있는지 확인해서 insert / update 분기 처리
+  const { data: existingData, error: fetchError } = await supabase
+    .from('$stOF')
+    .select('data');
+
+  if (fetchError) {
+    console.error("기존 데이터 조회 오류:", fetchError);
+    return;
+  }
+
+  if (!existingData || existingData.length === 0) {
+    // 기존 데이터 없으면 insert
+    const { error: insertError } = await supabase
+      .from('$stOF')
+      .insert([{ data: saveData }]);
+
+    if (insertError) {
+      console.error("데이터 삽입 오류:", insertError);
+    } else {
+      console.log("초기 데이터가 삽입되었습니다.");
+    }
+  } else {
+    // 기존 데이터 있으면 update (기본키 id 기준)
+    const id = existingData[0].id;
+    const { error: updateError } = await supabase
+      .from('$stOF')
+      .update({ data: saveData })
+      .eq('id', id);
+
+    if (updateError) {
+      console.error("데이터 수정 오류:", updateError);
+    } else {
+      console.log("기존 데이터가 업데이트 되었습니다.");
+    }
+  }
+}
+
 
 async function fixData(saveData) {
   const { data: updateData, error: updateError } = await supabase
     .from('$stOF')
-    .update({ id: saveData })
-    .eq('id', rId);
+    .update({ data: saveData });
 
   if (updateError) {
     console.error("데이터 업데이트 오류:", updateError);
   } else {
-    console.log("데이터가 업데이트되었습니다.");
+    console.log("모든 row의 data 컬럼이 업데이트되었습니다.");
   }
 }
 
@@ -174,6 +217,7 @@ app.post('/postC', (req, res) => {
   let header = req.headers;
   let body = req.body;
   let token = body.omgp;
+  let where = body.where || 'comu';
   let clientInfo = saveData.user[BBBdepass(token).replace('UP','')];
   if (!body || !body.vpmt) { 
     console.error('No $vpmt <- body');
@@ -181,7 +225,7 @@ app.post('/postC', (req, res) => {
   }
   if(true){}
   //console.log('Received vpmt:', body.vpmt);
-  saveData.comu.unshift(
+  saveData[where].unshift(
     {
       user:saveData.user[BBBdepass(token).replace('UP','')],
       time:timing(),
@@ -217,6 +261,7 @@ app.post('/postCC', (req, res) => {
   let header = req.headers;
   let body = req.body;
   let token = body.omgp;
+  let where = body.where || 'comu';
   let clientInfo = saveData.user[BBBdepass(token).replace('UP','')];
   let n = body.num;
   //console.log(n);
@@ -226,7 +271,7 @@ app.post('/postCC', (req, res) => {
   }
   if(true){}
   //console.log('Received vpmt:', body.vpmt);
-  saveData.comu[n].comment.push(
+  saveData[where][n].comment.push(
     {
       user:saveData.user[BBBdepass(token).replace('UP','')],
       time:timing(),
@@ -243,6 +288,7 @@ app.post('/likeC', (req, res) => {
   let header = req.headers;
   let body = req.body;
   let token = body.omgp;
+  let where1 = body.where || 'comu';
   let clientInfo = saveData.user[BBBdepass(token).replace('UP','')];
   let num = body.num;
   //console.log('num',num)
@@ -250,14 +296,14 @@ app.post('/likeC', (req, res) => {
     console.error('No $num <- body');
     return res.status(400).json({ error: 'No $num <- body' });
   }
-  if(!saveData.comu[num].likeP.includes(BBBdepass(token).replace('UP',''))){
-  saveData.comu[num].like++;
-  saveData.comu[num].likeP.push(BBBdepass(token).replace('UP',''));
+  if(!saveData[where1][num].likeP.includes(BBBdepass(token).replace('UP',''))){
+  saveData[where1][num].like++;
+  saveData[where1][num].likeP.push(BBBdepass(token).replace('UP',''));
   }
   else{
   const where = saveData.comu[num].likeP.indexOf(BBBdepass(token).replace('UP',''));
-  saveData.comu[num].like--;
-  saveData.comu[num].likeP.splice(where,1);
+  saveData[where1][num].like--;
+  saveData[where1][num].likeP.splice(where,1);
   }
   res.json({ succOrfail: 'succ' });
 });
@@ -267,6 +313,7 @@ app.post('/delC', (req, res) => {
   let header = req.headers;
   let body = req.body;
   let token = body.omgp;
+  let where = body.where || 'comu';
   let clientInfo = saveData.user[BBBdepass(token).replace('UP','')];
   let num = body.num;
   //console.log('num',num)
@@ -274,8 +321,8 @@ app.post('/delC', (req, res) => {
     console.error('No $num <- body');
     return res.status(400).json({ error: 'No $num <- body' });
   }
-  if(saveData.comu[num].user.name == BBBdepass(token).replace('UP','')||saveData.user[BBBdepass(token).replace('UP','')].ssfzom){
-    saveData.comu.splice(num,1);
+  if(saveData[where][num].user.name == BBBdepass(token).replace('UP','')||saveData.user[BBBdepass(token).replace('UP','')].ssfzom){
+    saveData[where].splice(num,1);
     res.json({ succOrfail: 'succ' });
   }
   else{res.json({ succOrfail: 'fail : SUS action found' });}
@@ -285,9 +332,9 @@ app.post('/delC', (req, res) => {
 app.post('/getC', (req, res) => {
   console.log('▶ /getC' + ` (${req.ip})`);
   let header = req.headers;
-  let limit = header.miz;
-  let type = header.yuqr;
-  res.json(saveData.comu);
+  let limit = Math.min(Number(header.miz), saveData.comu.length);
+  res.json(saveData.comu.slice(0, limit));
+  
 });
 
 app.post('/getU', (req, res) => {
