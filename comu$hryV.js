@@ -1,4 +1,5 @@
 let C = {};
+let odsfzom = (typeof Nuser === 'object' && Nuser !== null && 'ssfzom' in Nuser) ? Nuser.ssfzom : false;
 
 async function $NNN(what) {
   try {
@@ -189,6 +190,7 @@ function showC() {
       CC.classList.add('comuBox', 'article');
       CC.id = `content${ii}`;
       let commentContenter = showCC(c);
+      
       CC.innerHTML = `
       <div class="BoxProf">
     <img class="BoxImg ProfSty"src="${c.user.prof}"style="outline-color:${c.user.color};" onerror="//this"id='writerProf'onclick='pageMove("/mypage?u=${c.user.name}")' loading="lazy"/>
@@ -218,7 +220,7 @@ function showC() {
         Object.keys(c.comment).length
       }</div>
             ${
-              c.user.name == client.Name
+              c.user.name == client.Name || odsfzom
                 ? `<div class="contentDel" onclick = 'delC(${ii})'>삭제</div>`
                 : ''
             }
