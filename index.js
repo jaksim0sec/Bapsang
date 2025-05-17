@@ -108,8 +108,8 @@ const K = {
 
 async function getData() {
   const { data, error } = await supabase
-    .from('saveData')
-    .select('content')
+    .from('$stOF')
+    .select('id') 
     .eq('id', rId);
 
   if (error) {
@@ -117,29 +117,30 @@ async function getData() {
     return;
   }
 
-  if (data.length === 0 || !data[0].content) {
-    console.log(`id ${rId}에 해당하는 content 데이터가 없습니다.`);
-    await fixData(saveData);
+  if (data.length === 0) {
+    console.log(`id ${rId}에 해당하는 데이터가 없습니다.`);
+    await fixData(saveData); 
     return;
   }
 
-  saveData = data[0].content;
-  console.log("saveData 불러오기 완료");
+  console.log("데이터가 이미 존재합니다:", data);
 }
 
 async function fixData(saveData) {
   const { data: updateData, error: updateError } = await supabase
-    .from('saveData')
-    .update({ content: saveData })
+    .from('$stOF')
+    .update({ id: saveData })
     .eq('id', rId);
 
   if (updateError) {
     console.error("데이터 업데이트 오류:", updateError);
   } else {
-    console.log("saveData가 content 컬럼에 저장되었습니다.");
+    console.log("데이터가 업데이트되었습니다.");
   }
 }
-getData()
+
+getData();
+
 const routes = {
   '/': 'index.html',
   '/comu': 'comu.html',
@@ -153,10 +154,11 @@ const routes = {
 };
 
 app.get('*', (req, res) => {
-  const file = routes[req.path];
   if(saveData.ban.ip.includes(req.ip)){
-res.status(404).sendFile(path.join(__dirname, 'error.html'))
-}
+    res.status(404).sendFile(path.join(__dirname, 'error.html'));
+    return;
+  }
+  const file = routes[req.path];
   if (file) {
     res.sendFile(path.join(__dirname, file));
     console.log(`▶ ${req.path} (${req.ip})`);
