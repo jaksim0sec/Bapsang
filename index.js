@@ -2,16 +2,17 @@
 const express = require('express');
 //const session = require('express-session');
 const cors = require('cors');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const { createClient } = require('@supabase/supabase-js');
 const supabase = createClient('https://igclsxhcqikzrczohime.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnY2xzeGhjcWlrenJjem9oaW1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4OTY1NDUsImV4cCI6MjA2MjQ3MjU0NX0.AL0BTiuIRmJLmYkcDBscNqFRh6temQ-NdYP51bFb5tk');
 const rId = 1;
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.set('trust proxy', true);
-
 app.use(cors({
-  origin: '*',
+  origin: ['https://bapsang.onrender.com','https://babosangja.onrender.com'],
   allowedHeaders: [
     'Content-Type',
     'ssO',
