@@ -185,6 +185,10 @@ async function fixData(saveData) {
 
 getData();
 
+function unided(token) {
+  return BBBdepass(token).replace('UP', '');
+}
+
 const routes = {
   '/': 'index.html',
   '/comu': 'comu.html',
@@ -263,8 +267,9 @@ app.post('/postCC', (req, res) => {
   let body = req.body;
   let token = body.omgp;
   let where = body.where || 'comu';
-  let clientInfo = saveData.user[BBBdepass(token).replace('UP','')];
+  let clientInfo = saveData.user[unided(token)];
   let n = body.num;
+  let ui = unided(token)
   //console.log(n);
   if (!body || !body.vpmt) { 
     console.error('No $vpmt <- body');
@@ -274,7 +279,7 @@ app.post('/postCC', (req, res) => {
   //console.log('Received vpmt:', body.vpmt);
   saveData[where][n].comment.push(
     {
-      user:saveData.user[BBBdepass(token).replace('UP','')],
+      user:saveData.user[ui],
       time:timing(),
       content:body.vpmt,
       like:0,
