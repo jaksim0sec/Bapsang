@@ -24,6 +24,15 @@ app.use(cors({
   ]
 }));
 
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1분
+  max: 30, // 1분 동안 최대 100번의 요청
+  message: '워워, 진정하세요. 당신은 분당 30번 이상 요청하고 있어요!', // 요청 횟수를 초과했을 때 반환할 메시지
+  statusCode: 403, // 초과된 요청에 대해 403 상태 코드 반환
+});
+
+app.use(limiter);
+
 /*const { initializeApp } = require("firebase/app");
 const { getAnalytics } = require("firebase/analytics");
 const firebaseConfig = {
