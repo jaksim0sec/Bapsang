@@ -1,62 +1,93 @@
+/* ===== 텍스트 영역 (textarea) ===== */
 textarea {
   resize: vertical;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  box-shadow: inset 0px 4px 10px #572f0a20;
+  overflow: hidden;
   padding: 15px;
   font-size: 15px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  box-shadow: 0px 8px 10px #00000000, inset 0px 5px 7px #572f0a08;
   transition: all 0.5s ease;
-  overflow: hidden;
 }
 
 textarea:hover {
-  border: 2px solid #cacaca;
-  box-shadow: inset 0px 4px 10px #572f0a20;
+  border: 2px solid #522d0a30;
 }
 
 textarea:focus {
-  border: 1.5px solid #00000020;
-  color: #00000090;
-  box-shadow: inset -4px -4px 10px #572f0a20, 0px 10px 5px #44444420;
-  border-radius: 15px;
-  outline: none;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+  border-radius: 25px;
+  box-shadow: 0px 8px 10px #00000010, inset 0px 5px 7px #572f0a08;
 }
 
-.cover{
-  max-width:650px;
+/* ===== 커버 (전체 블록) ===== */
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 650px;
+  min-width: 38%;
   padding: 20px;
-  border-radius: 20px;
-  min-width:38%;
   margin: 20px;
   margin-bottom: 30px;
   border: 1.5px solid #00000020;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border-radius: 20px;
 }
 
-#goReg:hover{color:#000000}
+.cover button {
+  width: 100%;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
 
-input:not(input[type='checkbox']){
-  resize: none;
-  /*border: 2px solid #EAEAEA;*/
-  /*border: 2px solid transparent;*/
-  border-radius: 10px;
-  box-shadow: inset 4px 4px 10px #00000015;
-  padding: 15px;
-  font-size: 15px;
-  transition: all 0.5s ease;
+.cover span img {
+  width: 22px;
+  height: 22px;
+  filter: invert(100%) brightness(1.1);
+}
+
+/* ===== input 필드 ===== */
+input:not(input[type='checkbox']) {
   width: 98%;
   margin: 10px;
+  padding: 15px;
+  font-size: 15px;
   font-weight: bold;
-  border: 2px solid #00000015
+  resize: none;
+  border: 2px solid #00000015;
+  border-radius: 20px;
+  box-shadow: 0px 8px 10px #00000000, inset 0px 5px 7px #572f0a08;
+  transition: all 0.5s ease;
 }
 
-input[type="color"]{
-  padding: 0px;
-  width:50px;height:50px;
+input:not(input[type='checkbox']):hover {
+  border: 2px solid #522d0a30;
+}
+
+input:not(input[type='checkbox']):focus,
+* input[type='text']:focus,* input[type='text']:active
+ {
+  transform: translateY(-5px);
+  border: 2px solid #522d0a30;
+  border-radius: 25px;
+  box-shadow: 0px 8px 10px #00000010, inset 0px 5px 7px #572f0a08;
+}
+
+input::placeholder {
+  color: #00000045;
+}
+
+/* ===== 색상 선택 (color input) ===== */
+input[type="color"] {
+  width: 50px;
+  height: 50px;
+  padding: 0;
   border-radius: 10px;
 }
 
@@ -64,63 +95,38 @@ input[type="color"]::-webkit-color-swatch {
   border: none;
 }
 
-input::placeholder{color: #00000045;}
-
-input:not(input[type='checkbox']):hover{
-  border: 1.5px solid #cacaca;
-  box-shadow: inset 0px 4px 10px #00000020;
-  
-}
-
-input:not(input[type='checkbox']):focus{
-  border: 1.5px solid #00000050;
-  color: #00000090;
-  box-shadow: inset 0px 4px 10px #00000010, 0px 10px 5px #44444420;
-  border-radius: 20px;
-  outline: none;
-  transform: translateY(-10px);
-}
-
-.title{
+/* ===== 제목 및 내부 구성 ===== */
+.title {
   width: 100%;
-  padding: 15px;
-  padding-bottom: 0px;
-  padding-top: 0px;
   margin-top: 10px;
-  font-size: 17px;font-weight: bold
+  padding: 15px 15px 0px 15px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.innerCover{
+.innerCover {
   width: 100%;
-  padding: 15px;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  margin-top: 16px;
-  margin-bottom: 20px;
-  display: flex;align-items: center;gap: 15px;
+  margin: 16px 0 20px;
+  padding: 15px 15px 0px 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.innerCover div{
+.innerCover div,
+.innerCover div span {
   height: 100%;
-  display: flex;align-items: center;gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.innerCover div span{
-  height: 100%;
-  display: flex;align-items: center;gap: 5px;
-}
-.cover button{
-  width: 100%; margin: 10px;font-size: 16px;font-weight: bold;
-  display: flex;align-items: center;justify-content: center;gap: 5px;
-}
-.cover span img{width: 22px; height: 22px;filter: invert(100%) brightness(1.1);}
-
+/* ===== 체크박스 (커스텀) ===== */
 input[type="checkbox"] {
   display: none;
 }
 
 label {
-  display: inline-block;
   width: 14px;
   height: 14px;
   border: 1.5px solid #888888;
@@ -128,6 +134,7 @@ label {
   background-color: white;
   cursor: pointer;
   position: relative;
+  display: inline-block;
   transition: all 0.5s ease;
 }
 
@@ -146,13 +153,17 @@ input[type="checkbox"]:checked + label::after {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 12px;
   font-weight: bold;
 }
 
+/* ===== 기타 ===== */
+#goReg:hover {
+  color: #000000;
+}
 
-#regAlert{
+#regAlert {
   display: none;
 }
