@@ -22,6 +22,7 @@ async function $NNN(what) {
 }
 
 function getC(type) {
+  if(type==undefined){type=1};
   fetch('/getC', {
     method: 'POST',
     headers: {
@@ -35,7 +36,8 @@ function getC(type) {
       C = data;
       console.log(C);
       setTimeout(() => {
-        showC();
+        if(type){
+          showC();}
       }, 500);
     })
     .catch((error) => console.error('$^^Ryyqy is', error));
@@ -128,7 +130,13 @@ async function likeC(num) {
       .then((response) => response.json())
       .then((data) => {
         console.log('$Drbrt res of Succ or Fail', data);
-        getC();
+        getC(0);
+        const lc = HTML(`#content${num} .contentLike`).className;
+        const ln = HTML(`#content${num} .contentLike`).innerText;
+        const lch = lc.includes('L1')?'L0':'L1'
+        const oplch = lc.includes('L1')?'L1':'L0'
+        HTML(`#content${num} .contentLike`).className = lc.replace(oplch,lch)
+        HTML(`#content${num} .contentLike`).innerHTML = `<span><img src='https://ifh.cc/g/t45KAM.png' style="width:14px;margin-top:4.5px;margin-right:2px;"></span>`+data.num;
       })
       .catch((error) => console.error('$^^Ryyqy is', error));
   } catch (error) {
@@ -205,7 +213,7 @@ function showC() {
     <div class='BoxContent'>
     ${contC.replace(/https:\/\/i\.ibb\.co\/[^\s"']+/g, '')}
     ${contC.match(/https:\/\/i\.ibb\.co\/[^\s"']+/g)
-    ? `<div style = 'width:100%;height: 5px;'></div><img style = 'width:150px;border-radius:20px;'src='${contC.match(/https:\/\/i\.ibb\.co\/[^\s"']+/g)[0]}'>`
+    ? `<div style = 'width:100%;height: 5px;'></div><img style = 'max-width:50%;border-radius:20px;border:1.5px solid #522d0a15'src='${contC.match(/https:\/\/i\.ibb\.co\/[^\s"']+/g)[0]}'>`
     : ''}
     </div>
 

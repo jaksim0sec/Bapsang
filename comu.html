@@ -8,14 +8,15 @@
     button{padding: 12px 15px;}
     .highB:hover , button:hover{border-width:0.1px;padding: 12px 15px;}
     .BoxContent{
+      background-color: white;
       border: 2px solid #522d0a15;
       border-radius: 20px;
       padding: 10px;
       font-size: 15px;
       transition: all 0.5s ease;
       overflow: hidden;
-      
-      box-shadow: inset 0px 5px 7px #572f0a10;
+      min-height: 70px;
+      box-shadow: 0px 8px 10px #00000000,inset 0px 5px 7px #572f0a08;
     }
     textarea{resize: vertical;font-weight: bolder;}
     #contentRow{
@@ -29,6 +30,7 @@
     .article{animation: vanish 1s reverse ease;}
 
     .comuBox{
+      background-color: white;
         box-shadow: inset -5px -5px 7px #572f0a10;
         width: 90%;
         /*box-shadow: 0px 8px 5px #00000005, inset -5px -5px 15px #8d531215;*/
@@ -63,12 +65,11 @@
       background-color: white;
     }
     .comuBox textarea:hover{
-      border: 2px solid #522d0a50;
+      border: 2px solid #522d0a30;
     }
     #writeSpace textarea:focus{
-      border: 2px solid #7a7a7a;
-      transform: translateY(-10px);
-      box-shadow: 0px 8px 10px #00000020;
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 10px #00000010,inset 0px 5px 7px #572f0a08;
       border-radius: 25px;
     }
     #writeSpace textarea{margin-bottom: 10px;}
@@ -103,6 +104,11 @@
       color: #525151;
       margin-right: 2px;
     }
+    .BoxTail div:hover {
+      background-color: #e0e0e0;
+      color: rgb(59, 59, 59);
+      transform: translateY(-2px);
+    }
     .L0 {
       background-color: #572f0a10;
       color: #525151;
@@ -116,14 +122,9 @@
       filter: brightness(10);
     }
 
-    .L1:hover {
+    .BoxTail .L1:hover {
       background-color: #ff8189;
       color: rgb(253, 234, 234);
-    }
-    .BoxTail div:hover {
-      background-color: #e0e0e0;
-      color: rgb(59, 59, 59);
-      transform: translateY(-2px);
     }
     .BoxTail .contentDel{
       border-color: transparent;

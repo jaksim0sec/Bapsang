@@ -1,5 +1,7 @@
 //version 0.152
 const express = require('express');
+
+const rateLimit = require('express-rate-limit');
 //const session = require('express-session');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -9,7 +11,7 @@ const app = express();
 const { createClient } = require('@supabase/supabase-js');
 const supabase = createClient('https://igclsxhcqikzrczohime.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnY2xzeGhjcWlrenJjem9oaW1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4OTY1NDUsImV4cCI6MjA2MjQ3MjU0NX0.AL0BTiuIRmJLmYkcDBscNqFRh6temQ-NdYP51bFb5tk');
 const rId = 1;
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+//app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.set('trust proxy', true);
 app.use(cors({
   origin: ['https://bapsang.onrender.com','https://babosangja.onrender.com'],
@@ -31,7 +33,7 @@ const limiter = rateLimit({
   statusCode: 403, // 초과된 요청에 대해 403 상태 코드 반환
 });
 
-app.use(limiter);
+//app.use(limiter);
 
 /*const { initializeApp } = require("firebase/app");
 const { getAnalytics } = require("firebase/analytics");
@@ -320,7 +322,7 @@ app.post('/likeC', (req, res) => {
   saveData[where1][num].like--;
   saveData[where1][num].likeP.splice(where,1);
   }
-  res.json({ succOrfail: 'succ' });
+  res.json({ succOrfail: 'succ' , num:saveData[where1][num].like});
 });
 
 app.post('/delC', (req, res) => {

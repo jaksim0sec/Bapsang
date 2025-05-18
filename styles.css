@@ -16,7 +16,6 @@ body {
   /*font-family: "Nanum Gothic Coding", monospace;*/
   font-weight: 600;
   font-style: normal;
-  background-color: #ffffff;
 }
 
 a {
@@ -72,13 +71,13 @@ div {
   }
 }
 
-body::before {
+header::before {
   content: '';
   position: fixed;top:0px;
   width: 100vw;
-  height: 130px;
-  background: linear-gradient(white,white,white,white,white,transparent);
-  z-index: 1;
+  height: 115px;
+  background-color: white;
+  z-index: -1;
 }
 
 header {
@@ -97,7 +96,7 @@ header {
   z-index: 2;
 }
 
-header::before {
+header::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -109,7 +108,7 @@ header::before {
   transition: opacity 0.3s ease;
 }
 
-header:hover::before {
+header:hover::after {
   opacity: 1;
 }
 
@@ -403,12 +402,12 @@ main {
   flex-grow: 0;
   flex-basis: auto;
   max-width: auto;
-  background-color: #a6beff;
+  /*background-color: rgb(255, 171, 111);*/
   border-radius: 10px;
   padding: 3px 7px;
   height: 25px;
   font-weight: bolder;
-  color: #FFFFFF99;
+  color: rgb(255, 171, 111);
   transition: all 0.5s ease;
   display: inline-flex;
   align-items: center;
@@ -416,7 +415,7 @@ main {
 }
 
 .mention:hover {
-  background-color:#83a4ff;
+  color:rgb(255, 129, 90);
   border-radius: 10px;
 }
 
