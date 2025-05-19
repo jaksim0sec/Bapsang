@@ -1,27 +1,30 @@
 <head>
 <style>
-*{box-sizing: border-box;}
+*{box-sizing: border-box;font-family: '42dot Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;}
 body{
 width:100vw;height:100vh;
 margin:0px;padding:0px;
 overflow:scroll; display: flex; align-items: center; flex-direction: column;
+
 }
 header{
-    width: 65vw;
-    height: 110px;
+    width: 100vw;
+    height: 90px;
     display: flex; align-items: center; justify-content: center;
     position: relative;
 }
 main{
-    width: 65vw;
-    height: calc(100vh - 110px);
+    width: 100vw;
+    height: calc(100vh - 90px);
     display: flex;
-    border: /*1.2px solid #5a4c3f30*/2px solid #522d0a15;
-    border-radius: 15px 15px 0 0;
+    border: /*1.1.5px solid#5a4c3f30*/1.5px solid#39393920;
+    border-right: none;
 }
 aside{
-    border-right: 2px solid #522d0a15;
-    height: 100%; width: 270px;
+    border-right: 1.5px solid#39393920;
+    height: 100%; width: 300px;padding-left: 20px;padding-top: 20px;
 }
 #content{
     width: 100%; height: 100%;padding: 30px;
@@ -29,15 +32,17 @@ aside{
 }
 
 /*틀 세부*/
-#logo{height: 50px; position: absolute;left: 35px;}
+header div{position: absolute;right: 45px;display: flex; align-items: center;}
+#logo{height: 50px; position: absolute;left: 45px;}
+#headerProfile{width: 45px;height: 45px;}
 
 .navButton {
-    font-size: 18.5px; display: flex; justify-content: center; align-items: center; gap: 15px;margin: 25px;
-    border-radius: 15px; padding: 10px 20px; transition: all 0.5s ease; font-weight: bold; color: #393939;
+    font-size: 18px; display: flex; justify-content: center; align-items: center; gap: 22px;margin: 15px 10px;
+    border-radius: 15px; padding: 13px 20px; transition: all 0.5s ease; color: #393939;
 }
 .navButton:hover{background-color: rgb(240, 240, 240);}
-.navButton img{ height: 30px;opacity: 0.85;}
-.navButton span{width: 100%;opacity: 0.85;}
+.navButton img{ height: 25px;opacity: 0.9;}
+.navButton span{width: 100%;opacity: 0.9;}
 
 /*태그별 정리*/
 a {
@@ -77,12 +82,12 @@ button {
 .midB {
   background-color: white;
   border-radius: 20px;
-  border: 2px solid #00000030;
+  border: 2px solid#00000030;
 }
 
 .midB:hover {
   background-color: rgb(226, 226, 226);
-  border: 2px solid #a3a3a3;
+  border: 2px solid#a3a3a3;
 }
 
 .link {
@@ -138,7 +143,7 @@ button {
   border-radius: 50%;
   transition: all 0.5s ease;
   border: 2.5px solid transparent;
-  outline: 2px solid #00000050;
+  outline: 1.5px solid#00000050;
   box-sizing: border-box;
   object-fit: cover;
   overflow: hidden;
@@ -162,15 +167,17 @@ button {
 <body>
 <header>
     <img id="logo" src="https://ifh.cc/g/3BPRJr.png"/>
-    <div></div>
+    <div>
+        <img class="ProfSty" id="headerProfile" src="https://ifh.cc/g/qaHX3T.png"/>
+    </div>
 </header>
 <main>
     <aside>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/6XsS96.png'/><span>홈</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/2kTcXk.png'/><span>검색</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/5QsGrJ.png'/><span>메세지</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/wOC1om.png'/><span>알림</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/bOWSHj.png'/><span>설정</span></div>
+        <div id='home'class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/6XsS96.png'/><span>홈</span></div>
+        <div id='search'class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/2kTcXk.png'/><span>검색</span></div>
+        <div id='message'class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/5QsGrJ.png'/><span>메세지</span></div>
+        <div id='alarm'class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/wOC1om.png'/><span>알림</span></div>
+        <div id='setting'class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/bOWSHj.png'/><span>설정</span></div>
     </aside>
     <div id='content'>  
                         <style>
@@ -178,7 +185,7 @@ button {
                         .highB:hover , button:hover{border-width:0.1px;padding: 12px 15px;}
                         .BoxContent{
                         background-color: white;
-                        border: 2px solid #522d0a15;
+                        border: 1.5px solid#39393920;
                         border-radius: 20px;
                         padding: 10px;
                         font-size: 15px;
@@ -207,7 +214,7 @@ button {
                             margin: 5px;
                             padding: 3%;
                             box-shadow: inset -5px -5px 7px #572f0a10;
-                            border: 2px solid #522d0a15;
+                            border: 1.5px solid#39393920;
                             animation: vanish 1s reverse ease;
                             margin-bottom: 15px;
                         }
@@ -235,7 +242,7 @@ button {
                         background-color: white;
                         }
                         .comuBox textarea:hover{
-                        border: 2px solid #522d0a30;
+                        border: 1.5px solid#522d0a30;
                         }
                         #writeSpace textarea:focus{
                         transform: translateY(-5px);
@@ -382,4 +389,9 @@ button {
                 </div>
     </div>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+<script src="$3$gpejtjfwjd.js" defer></script>
+<script src="comu$hryV.js" defer></script>
+<script src="comu$dudIO.js" defer></script>
+<script src="comu$3$qhdks.js" defer></script>
 </body>

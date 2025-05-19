@@ -1,56 +1,399 @@
 <head>
-<style>
-*{box-sizing: border-box;}
-body{
-width:100vw;height:100vh;
-margin:0px;padding:0px;
-overflow:scroll; display: flex; align-items: center; flex-direction: column;
-}
-header{
-    width: 90vw;
-    height: 110px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-}
-main{
-    width: 90vw;
-    height: calc(100vh - 110px);
-    display: flex;
-    border: 1px solid #5a4c3f30;
-    border-radius: 10px 10px 0 0;
-}
-aside{
-    border-right: 1px solid #5a4c3f30;
-    height: 100%; width: 250px;
-}
-#content{
-    width: 100%; height: 100%;
-    overflow-y: scroll;
-}
+    <style>
+    *{box-sizing: border-box;font-family: '42dot Sans', sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;}
+    body{
+    width:100vw;height:100vh;
+    margin:0px;padding:0px;
+    overflow:scroll; display: flex; align-items: center; flex-direction: column;
+    
+    }
+    header{
+        width: 90vw;
+        height: 110px;
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+    }
+    main{
+        width: 90vw;
+        height: calc(100vh - 110px);
+        display: flex;
+        border: /*1.1.5px solid#5a4c3f30*/1.5px solid#39393920;
+        border-radius: 15px 15px 0 0;
+    }
+    aside{
+        border-right: 1.5px solid#39393920;
+        height: 100%; width: 260px;
+    }
+    #content{
+        width: 100%; height: 100%;padding: 30px;
+        overflow-y: scroll;display: flex; align-items: center; flex-direction: column;
+    }
+    
+    /*틀 세부*/
+    header div{position: absolute;right: 35px;display: flex; align-items: center;}
+    #logo{height: 50px; position: absolute;left: 35px;}
+    #headerProfile{width: 50px;height: 50px;}
+    
+    .navButton {
+        font-size: 17px; display: flex; justify-content: center; align-items: center; gap: 18px;margin: 25px 10px;
+        border-radius: 15px; padding: 10px 20px; transition: all 0.5s ease; color: #393939;
+    }
+    .navButton:hover{background-color: rgb(240, 240, 240);}
+    .navButton img{ height: 26px;opacity: 0.9;}
+    .navButton span{width: 100%;opacity: 0.9;}
+    
+    /*태그별 정리*/
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      text-decoration: none;
+      color: black;
+    }
+    
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: 0.1px solid #ffffff10;
+      border-radius: 10px;
+      background-color: white;
+      transition: all 0.5s ease;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .highB {
+      background-color: rgb(34, 34, 34);
+      color: white;
+      border-radius: 20px;
+    }
+    
+    .highB:hover {
+      background-color: rgb(75, 75, 75);
+      border: 4px solid #303030;
+    }
+    
+    .midB {
+      background-color: white;
+      border-radius: 20px;
+      border: 2px solid#00000030;
+    }
+    
+    .midB:hover {
+      background-color: rgb(226, 226, 226);
+      border: 2px solid#a3a3a3;
+    }
+    
+    .link {
+      color: #56aaee;
+      font-weight: bold;
+      transition: all 0.5s ease;
+    }
+    .link:hover {
+      color: #248add;
+    }
+    
+    
+    .color {
+      color: #45d38c;
+    }
+    
+    .tag {
+      transition: all 1s ease;
+      width: 10px;
+    }
+    
+    .mention {
+      flex-grow: 0;
+      flex-basis: auto;
+      max-width: auto;
+      /*background-color: rgb(255, 171, 111);*/
+      border-radius: 10px;
+      padding: 3px 7px;
+      height: 25px;
+      font-weight: bolder;
+      color: rgb(255, 171, 111);
+      transition: all 0.5s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mention:hover {
+      color:rgb(255, 129, 90);
+      border-radius: 10px;
+    }
+    
+    .tag img {
+      animation: glow 3.5s ease infinite;
+      filter: drop-shadow(10px 10px 15px #ffb732c5);
+      height: 14.5px;
+      margin-left: 2px;
+      margin-right: 2px;
+      transform-origin: center;
+    }
+    
+    .ProfSty {
+      border-radius: 50%;
+      transition: all 0.5s ease;
+      border: 2.5px solid transparent;
+      outline: 1.5px solid#00000050;
+      box-sizing: border-box;
+      object-fit: cover;
+      overflow: hidden;
+    }
+    
+    
+    @keyframes glow {
+      0% {
+        filter: none;
+      }
+      50% {
+        filter: brightness(1.15) contrast(1.1);
+      }
+      100% {
+        filter: none;
+      }
+    }
+    </style>
+    
+    </head>
+    <body>
+    <header>
+        <img id="logo" src="https://ifh.cc/g/3BPRJr.png"/>
+        <div>
+            <img class="ProfSty" id="headerProfile" src="https://ifh.cc/g/qaHX3T.png"/>
+        </div>
+    </header>
+    <main>
+        <aside>
+            <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/6XsS96.png'/><span>홈</span></div>
+            <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/2kTcXk.png'/><span>검색</span></div>
+            <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/5QsGrJ.png'/><span>메세지</span></div>
+            <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/wOC1om.png'/><span>알림</span></div>
+            <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/bOWSHj.png'/><span>설정</span></div>
+        </aside>
+        <div id='content'>  
+                            <style>
+                            button{padding: 12px 15px;}
+                            .highB:hover , button:hover{border-width:0.1px;padding: 12px 15px;}
+                            .BoxContent{
+                            background-color: white;
+                            border: 1.5px solid#39393920;
+                            border-radius: 20px;
+                            padding: 10px;
+                            font-size: 15px;
+                            transition: all 0.5s ease;
+                            overflow: hidden;
+                            min-height: 70px;
+                            box-shadow: 0px 8px 10px #00000000,inset 0px 5px 7px #572f0a08;
+                            }
+                            textarea{resize: vertical;font-weight: bolder;}
+                            #contentRow{
+                                width: 70vw;
+                                min-width: 340px;
+                                max-width: 585px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .article{animation: vanish 1s reverse ease;}
+                        
+                            .comuBox{
+                            background-color: white;
+                                
+                                width: 90%;
+                                /*box-shadow: 0px 8px 5px #00000005, inset -5px -5px 15px #8d531215;*/
+                                border-radius: 25px;
+                                margin: 5px;
+                                padding: 3%;
+                                box-shadow: inset -5px -5px 7px #572f0a10;
+                                border: 1.5px solid#39393920;
+                                animation: vanish 1s reverse ease;
+                                margin-bottom: 15px;
+                            }
+                            
+                            .BoxProf{
+                                width: 100%;
+                                display: flex;
+                                margin-bottom: 10px;
+                                align-items: center;
+                            }
+                            .BoxImg{width: 50px;height:50px;margin-right: 6px;}
+                            .BoxInfo {padding: 10px;}
+                            .BoxNick {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            }
+                            .BoxTime {font-size: 13px;color: #6c6c6c;}
+                        
+                            .comuBox textarea{
+                            width: 100%;
+                            max-height: 300px;
+                            transition: all 0.4s ease;
+                            outline: none;
+                            background-color: white;
+                            }
+                            .comuBox textarea:hover{
+                            border: 1.5px solid#522d0a30;
+                            }
+                            #writeSpace textarea:focus{
+                            transform: translateY(-5px);
+                            box-shadow: 0px 8px 10px #00000010,inset 0px 5px 7px #572f0a08;
+                            border-radius: 25px;
+                            }
+                            #writeSpace textarea{margin-bottom: 10px;}
+                            .BoxContent{
+                            padding: 15px;
+                            }
+                        
+                            .BoxTail {
+                            width: 100%;
+                            display: flex;
+                            padding: 4px;
+                            padding-top:0px;
+                            align-items: center;
+                            font-family: Arial;
+                            font-size: 14px;
+                            margin-top: 10px;
+                            }
+                            .BoxTail div{
+                            border: 1.5px solid #311E0F15;
+                            padding: 0 8px;
+                            border-radius: 40px;
+                            height: 28px;
+                            background-color: #572f0a10;
+                            color: #525151;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 5px;
+                            }
+                        
+                            .contentLike span{
+                            color: #525151;
+                            margin-right: 2px;
+                            }
+                            .BoxTail div:hover {
+                            background-color: #e0e0e0;
+                            color: rgb(59, 59, 59);
+                            transform: translateY(-2px);
+                            }
+                            .L0 {
+                            background-color: #572f0a10;
+                            color: #525151;
+                            }
+                        
+                            .BoxTail .L1 {
+                            background-color: #fd4766;
+                            color: #fff;
+                            }
+                            .L1 *{
+                            filter: brightness(10);
+                            }
+                        
+                            .BoxTail .L1:hover {
+                            background-color: #ff8189;
+                            color: rgb(253, 234, 234);
+                            }
+                            .BoxTail .contentDel{
+                            border-color: transparent;
+                            background-color: transparent;
+                            }    
+                        
+                            .commentCover{
+                            width: 100%;margin-top: 10px;display: none;
+                            animation: vanish 1s reverse ease;
+                            flex-direction: column;
+                            align-items: bottom;
+                            justify-content: center;
+                            background:#00000002;padding:20px;
+                            }
+                            .commentRow{width: 100%}
+                            .commentUser {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 15px;
+                            width: 100%;
+                            }
+                            
+                            .commentUser .ProfSty{width:40px;min-width:40px;height:40px;margin-right:12px}
+                            .commentRow .tag img{display:inline-block;}
+                            .commentReplyCover{width: 100%;position: relative;background:white;box-shadow: none;}
+                            .commentReplyCover textarea{border:none;height: 50px;margin-bottom: 35px;resize: none;}
+                            .commentReplyCover textarea:hover{border:none;}
+                            .commentReplyCover textarea:focus{border:none;}
+                            .commentReplyCover button{position: absolute; right: 5px; bottom: 5px;}
+                            .commentReplyCover button:hover{border:0.1px solid;}
+                            
+                            @keyframes vanish {
+                            0% {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                            99% {
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                            100% {
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                            }
+                        
+                            @keyframes show {
+                            0% {
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                            1% {
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                            100% {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                            }
+                        
+                            </style> 
+    
+                    <input type="file" id="postImg" style="display: none;" onchange="$3$dlalwldhfflrl()">
+                    <!--<div id="contentRow">-->
+                    <div id="contentRow">
+                    <div id="writeSpace" class="comuBox">
+    
+                    <div class="BoxProf">
+                    <img class="BoxImg ProfSty"src="https://ifh.cc/g/qaHX3T.png"onerror="//this"id='writerProf'onclick='pageMove(`/mypage?u=${client.Name}`)' loading="lazy"/>
+                    <div class="BoxInfo" onclick='pageMove(`/mypage?u=${client.Name}`)'>
+                    <div class="BoxNick">@예시닉네임</div>
+                    <div class="BoxTime">••••.•.••</div></div>
+                    </div>
+    
+    
+                    <textarea placeholder="당신의 생각을 사람들과 공유해보세요!" class='BoxContent'></textarea>
+                    <div style = 'display:flex;justify-content:left;width:100%;align-items:center;'>
+                    <span><button id="sendArticle" class="highB">올리기</button></span>
+                    <span><button style = 'margin:0px;padding:10px;' onclick="if(HTML('#postImgButton').innerHTML == '이미지추가'){HTML('#postImg').click();}else{$3$djqfhemcnlth()}"id='postImgButton'>이미지추가</button></span>
+                    <span><img id = 'postedImg' src = '' style="height: 30px;border-radius:5px;"></span>
+    
+                    </div>
+                    </div>
+                    </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+    <script src="$3$gpejtjfwjd.js" defer></script>
+    <script src="comu$hryV.js" defer></script>
+    <script src="comu$dudIO.js" defer></script>
+    <script src="comu$3$qhdks.js" defer></script>
+    </body>
 
-/*틀 세부*/
-#logo{height: 50px; position: absolute;left: 20px;}
-
-.navButton {font-size: 18px; display: flex; justify-content: center; align-items: center; gap: 15px;margin: 35px;}
-.navButton img{ height: 30px;}
-.navButton span{width: 100%;}
-</style>
-
-</head>
-<body>
-<header>
-    <img id="logo" src="https://ifh.cc/g/3BPRJr.png"/>
-    <div></div>
-</header>
-<main>
-    <aside>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/6XsS96.png'/><span>홈</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/2kTcXk.png'/><span>검색</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/5QsGrJ.png'/><span>메세지</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/wOC1om.png'/><span>알림</span></div>
-        <div class="navButton" onclick="pageMove('/',1000);"><img src = 'https://ifh.cc/g/bOWSHj.png'/><span>설정</span></div>
-    </aside>
-    <div id='content'>   
-    </div>
-</main>
-</body>
+https://slang.place/web/img/realLogo.svg
