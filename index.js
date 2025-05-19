@@ -209,6 +209,7 @@ const routes = {
   '/alarm': 'alarm.html',
   '/setting': 'setting.html',
   '/term': 'term.html',
+  '/test': 'test.html',
   '/space': 'errorr.html'
 };
 
